@@ -1,0 +1,20 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .header {
+    display: flex;
+    justify-content: space-between;
+
+    & .options {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: global-sizes.$gap-items-md-size;
+    }
+  }
+}

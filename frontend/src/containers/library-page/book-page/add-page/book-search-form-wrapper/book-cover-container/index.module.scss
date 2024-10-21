@@ -1,0 +1,21 @@
+@use 'styles/global-sizes';
+@use 'styles/mixins';
+
+.editImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  column-gap: 10px;
+  
+  @include mixins.media-query(md){
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  & .dropdownButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

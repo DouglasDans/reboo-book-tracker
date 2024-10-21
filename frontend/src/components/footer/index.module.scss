@@ -1,0 +1,52 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  background-color: color-variables.$background-level1-color;
+  padding: 30px 50px;
+
+  & .content {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & .linkIcons {
+    display: flex;
+    gap: global-sizes.$gap-components-size;
+
+    & a .linkIcon {
+      transition: 200ms;
+    }
+
+    & a:hover .linkIcon {
+      opacity: 0.8;
+      transition: 200ms;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    gap: global-sizes.$gap-items-md-size;
+    
+    & .content{
+      height: auto;
+      text-align: center;
+      & .logo {
+        display: none;
+      }
+    }
+  }
+}

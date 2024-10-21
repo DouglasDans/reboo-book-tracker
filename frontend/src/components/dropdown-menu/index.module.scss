@@ -1,0 +1,36 @@
+@use 'styles/color-variables';
+@use "styles/global-sizes";
+@use "styles/mixins";
+
+.cardContainer{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.cardContainer .card{
+  position: absolute;
+
+  background-color: color-variables.$background-body-color;
+  border: 1px solid color-variables.$background-level2-color;
+  border-radius: global-sizes.$card-radius;
+  padding: global-sizes.$menu-padding;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include mixins.media-query(lg){
+    position: fixed;
+
+    bottom: 90px;
+    left: 0;
+    width: 100vw;
+    height: auto;
+
+    border-bottom: 0;
+    border-radius: global-sizes.$card-radius global-sizes.$card-radius 0 0;
+
+    display: flex;
+    justify-content: center;
+  }
+}

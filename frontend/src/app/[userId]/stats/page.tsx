@@ -1,7 +1,14 @@
-type Props = {}
+import StatsInDevelopment from "@/components/stats-in-development"
+import { Metadata } from "next"
 
-export default function page({ }: Props) {
+export const metadata: Metadata = {
+  title: "Estatísticas",
+}
+
+export default function page() {
   return (
-    <div>Minhas Estatísticas</div>
+    <div style={{ height: '400px' }}>
+      <StatsInDevelopment />
+    </div>
   )
 }

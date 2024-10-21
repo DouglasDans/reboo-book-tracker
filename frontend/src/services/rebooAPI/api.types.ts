@@ -24,6 +24,25 @@ export interface Book {
   readingSessions?: Array<ReadingSession>
 }
 
+export interface BookDataRequest {
+  id?: string
+  userId: number
+  title: string
+  totalPages: number
+  author: string[]
+  pagesRead: number
+  status: string
+  publisher: string | null
+  highlightColor: string | null
+  coverImage: string | null
+  language: string | null
+  description: string | null
+  publicationDate: string | null
+  isbn_10: string | null
+  isbn_13: string | null
+  category: string[] | null
+}
+
 export interface Author {
   id: number
   name: string
@@ -79,7 +98,7 @@ export interface User {
   id: number
   name: string
   email: string
-  password: string
+  password?: string
   bio?: string
   profileImage?: string
   googleId?: string

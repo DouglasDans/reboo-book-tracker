@@ -1,0 +1,28 @@
+@use 'styles/global-sizes';
+
+.container{
+  margin-left: global-sizes.$sidebar-size;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & .content{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-components-size;
+    padding: 30px 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container{
+    margin: 0;
+    margin-bottom: 90px;
+    
+    & .content{
+      padding: 20px;
+    }
+  }
+}

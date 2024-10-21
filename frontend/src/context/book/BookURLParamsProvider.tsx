@@ -3,7 +3,9 @@
 import { createContext, ReactNode } from "react"
 
 interface Props {
-  value: string
+  value: {
+    [key: string]: string | string[] | undefined
+  } | string
   children: ReactNode
 }
 
