@@ -19,13 +19,14 @@ jobs:
           node-version: '20.x'
 
       - name: Set environment variables
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
+        
         run: echo "DATABASE_URL is set"
 
       - name: npm install, build, and test
-        working-directory: ./backend   # Define o diretório correto
+        working-directory: ./backend 
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
         run: |
           npm ci
           npx prisma generate
