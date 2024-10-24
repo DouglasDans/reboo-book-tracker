@@ -32,7 +32,6 @@ jobs:
           npx prisma generate
           npx prisma migrate deploy
           npx nest build
-          node dist/main
 
       - name: Zip artifact for deployment
         working-directory: ./backend   # Garante que ele vai zipar da pasta backend
