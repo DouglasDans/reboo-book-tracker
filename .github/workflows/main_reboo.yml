@@ -57,7 +57,7 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip ./backend/release.zip
+        run: unzip release.zip
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -65,5 +65,4 @@ jobs:
         with:
           app-name: 'Reboo'
           slot-name: 'Production'
-          package: ./backend   # Certifique-se de apontar para a pasta correta
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_936E9EE84F6740F29199B4FB298C99C5 }}
