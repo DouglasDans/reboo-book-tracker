@@ -24,11 +24,14 @@ jobs:
 
       - name: npm install, build, and test
         working-directory: ./backend 
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+          JWT_PRIVATE_KEY: ${{ env.JWT_PRIVATE_KEY }}
         run: |
           npm ci
           npx prisma generate
           npx prisma migrate deploy
-          npm run build
+          npx nest build
           node dist/main
 
       - name: Zip artifact for deployment
