@@ -35,7 +35,7 @@ export default function SmallScreenBanner({ book }: Props) {
   return (
     <section className={styles.container} >
       <div
-        className={styles.backgroundBanner}
+        className={styles.bannerContent}
         style={(highlightColor ? { backgroundColor: highlightColor } : {})}
       >
         <img src={book.coverImage || "/book-image-placeholder.png"} className={styles.coverImage} alt="" />
