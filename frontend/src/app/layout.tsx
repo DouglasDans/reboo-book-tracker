@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html data-color-scheme="dark" lang="pt-BR">
       <body>
+        <Analytics />
         {children}
       </body>
     </html>
