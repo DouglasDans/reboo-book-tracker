@@ -1,21 +1,21 @@
-$background-body-color: #121418;
-$background-level1-color: #1c1e26;
-$background-level2-color: #2e303e;
+$background-body-color: #0F1115;
+$background-level1-color: #171A21;
+$background-level2-color: #2B303C;
 
 $highlight-color: #ffaa00;
 
-$text-primary-color: #f5f5fc;
-$text-secondary-color: #79849a;
-$text-tertiary-color: #3d4351;
+$text-primary-color: #E8EBF4;
+$text-secondary-color: #6C7B97;
+$text-tertiary-color: #454E61;
 
 $button-primary-color: #f5f5fc;
 $button-primary-color-hover: #dadaf1;
 $button-primary-color-active: #c2c2d6;
 
-$button-secondary-color: #1c1e26;
-$button-secondary-border-color: #2e303e;
-$button-secondary-color-hover: #121418;
-$button-secondary-color-active: #0D0E12;
+$button-secondary-color: $background-level1-color;
+$button-secondary-border-color: $background-level2-color;
+$button-secondary-color-hover: $background-body-color;
+$button-secondary-color-active: #080A0C;
 
 $icon-dark-button-primary-color: #1c1e26;
 $icon-dark-button-primary-border-color: #2e303e;
