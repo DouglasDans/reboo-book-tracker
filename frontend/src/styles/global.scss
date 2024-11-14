@@ -97,7 +97,7 @@ input,
 textarea {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
-  border: 1px solid color-variables.$background-level2-color;
+  border: 2px solid color-variables.$background-level2-color;
 
   padding: global-sizes.$form-input-padding;
   border-radius: global-sizes.$form-input-radius;
@@ -110,7 +110,7 @@ textarea {
 
   &:focus-visible {
     outline: none;
-    border: 1px solid color-variables.$text-secondary-color;
+    border: 2px solid color-variables.$text-secondary-color;
     background-color: color-variables.$form-input-color-focus;
   }
 
@@ -120,6 +120,6 @@ textarea {
   }
 
   &:disabled {
-    border: 1px solid color-variables.$background-level1-color;
+    border: 2px solid color-variables.$background-level1-color;
   }
 }
