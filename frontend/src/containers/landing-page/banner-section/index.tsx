@@ -14,7 +14,7 @@ export default function LandingBanner() {
           <Button>Começar Agora</Button>
         </Link>
       </div>
-      <Image className={styles.image} src={"/dash.png"} height={1440} width={1024} alt='Imagem mostrando a interface da dashboard do aplicativo Reboo' />
+      <Image className={styles.image} src={"/dash.png"} loading='eager' height={1440} width={1024} alt='Imagem mostrando a interface da dashboard do aplicativo Reboo' />
     </div>
   )
 }
