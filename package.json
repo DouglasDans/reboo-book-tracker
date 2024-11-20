@@ -3,6 +3,10 @@
   "version": "0.1.1",
   "description": "Organize sua biblioteca virtual, acompanhe seu progresso e estabeleça metas de leitura. Crie coleções, adicione livros por ISBN, defina sessões de leitura e visualize seus hábitos através de gráficos interativos.",
   "main": "index.js",
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend"
+  ],
   "scripts": {
     "dev-watch": "docker compose -f compose.yml -f compose.dev.yml up --watch",
     "dev-build": "docker compose -f compose.yml -f compose.dev.yml up --watch --build",
