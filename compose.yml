@@ -17,9 +17,7 @@ services:
 
   backend:
     container_name: rbo-backend
-    build: ./backend # pasta do dockerfile
-    env_file:
-      - ./backend/.env
+    build: ./apps/backend # pasta do dockerfile
     depends_on:
       - postgres
     networks:
@@ -27,7 +25,7 @@ services:
   
   frontend:
     container_name: rbo-frontend
-    build: ./frontend
+    build: ./apps/frontend
     depends_on:
       - backend
     links:
