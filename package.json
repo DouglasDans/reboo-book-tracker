@@ -1,0 +1,25 @@
+{
+  "name": "reboo-book-tracker",
+  "version": "0.1.1",
+  "description": "Organize sua biblioteca virtual, acompanhe seu progresso e estabeleça metas de leitura. Crie coleções, adicione livros por ISBN, defina sessões de leitura e visualize seus hábitos através de gráficos interativos.",
+  "main": "index.js",
+  "scripts": {
+    "dev-watch": "docker compose -f compose.yml -f compose.dev.yml up --watch",
+    "dev-build": "docker compose -f compose.yml -f compose.dev.yml up --watch --build",
+    "test-build": "docker compose -f compose.yml -f compose.dev.yml up --watch --build",
+    "prod-build": "docker compose -f compose.yml -f compose.dev.yml up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DouglasDans/reboo-book-tracker.git"
+  },
+  "author": "douglasdans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DouglasDans/reboo-book-tracker/issues"
+  },
+  "homepage": "https://github.com/DouglasDans/reboo-book-tracker#readme",
+  "dependencies": {
+    "reboo-book-tracker": "file:"
+  }
+}
