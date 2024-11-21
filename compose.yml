@@ -1,7 +1,7 @@
 services:
   postgres:
     container_name: rbo-postgres
-    image: postgres:latest
+    image: postgres:16
     restart: always
     networks:
       - rbo-network

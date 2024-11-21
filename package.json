@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev-watch": "docker compose -f compose.yml -f compose.dev.yml up --watch",
-    "dev-build": "docker compose -f compose.yml -f compose.dev.yml up --watch --build",
+    "dev-build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
     "test-build": "docker compose -f compose.yml -f compose.test.yml up --build",
     "prod-build": "docker compose -f compose.yml -f compose.prod.yml up --build"
   },
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/DouglasDans/reboo-book-tracker/issues"
   },
-  "homepage": "https://github.com/DouglasDans/reboo-book-tracker#readme",
+  "homepage": "https://rebootrack.me",
   "dependencies": {
     "reboo-book-tracker": "file:"
   }
