@@ -8,10 +8,16 @@
     "apps/frontend"
   ],
   "scripts": {
-    "dev-watch": "docker compose -f compose.yml -f compose.dev.yml up --watch",
-    "dev-build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
-    "test-build": "docker compose -f compose.yml -f compose.test.yml up --build",
-    "prod-build": "docker compose -f compose.yml -f compose.prod.yml up --build"
+    "backend:dev": "cd apps && cd backend && npm run start:dev",
+    "backend:test:": "cd apps && cd backend && npm run test",
+    "backend:build": "cd apps && cd backend && npm run prod-p",
+    "frontend:dev": "cd apps && cd frontend && next dev",
+    "frontend:test": "cd apps && cd frontend && next lint",
+    "frontend:build": "cd apps && cd frontend && next build && next start",
+    "docker:dev": "docker compose -f compose.yml -f compose.dev.yml up --watch",
+    "docker:dev:build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
+    "docker:test:build": "docker compose -f compose.yml -f compose.test.yml up --build",
+    "docker:prod:build": "docker compose -f compose.yml -f compose.prod.yml up --build"
   },
   "repository": {
     "type": "git",
