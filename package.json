@@ -8,12 +8,12 @@
     "apps/frontend"
   ],
   "scripts": {
-    "backend:dev": "cd apps && cd backend && npm run start:dev",
-    "backend:test:": "cd apps && cd backend && npm run test",
-    "backend:build": "cd apps && cd backend && npm run prod-p",
-    "frontend:dev": "cd apps && cd frontend && next dev",
-    "frontend:test": "cd apps && cd frontend && next lint",
-    "frontend:build": "cd apps && cd frontend && next build && next start",
+    "backend:dev": "yarn workspace backend start:dev",
+    "backend:test:": "yarn workspace backend test",
+    "backend:build": "yarn workspace backend start:prod-p",
+    "frontend:dev": "yarn workspace frontend dev",
+    "frontend:test": "yarn workspace frontend lint",
+    "frontend:build": "yarn workspace frontend build && start",
     "docker:dev": "docker compose -f compose.yml -f compose.dev.yml up --watch",
     "docker:dev:build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
     "docker:test:build": "docker compose -f compose.yml -f compose.test.yml up --build",
@@ -31,5 +31,6 @@
   "homepage": "https://rebootrack.me",
   "dependencies": {
     "reboo-book-tracker": "file:"
-  }
+  },
+  "packageManager": "yarn@4.5.2"
 }
