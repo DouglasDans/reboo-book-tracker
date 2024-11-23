@@ -18,7 +18,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: apps/frontend/Dockerfile
+      dockerfile: apps/backend/Dockerfile
     command: yarn run start:dev
     env_file:
       - ./apps/backend/.env
