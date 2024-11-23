@@ -25,7 +25,6 @@ services:
   
   frontend:
     container_name: rbo-frontend
-    build: ./apps/frontend
     depends_on:
       - backend
     links:

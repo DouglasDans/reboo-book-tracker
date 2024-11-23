@@ -5,10 +5,13 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # Copie os arquivos de dependências para o contêiner
-COPY package*.json ./
+COPY ./yarn.lock ./
+COPY ./.yarnrc.yml ./
+COPY ./apps/frontend/package.json ./
 
 # Instale as dependências
-RUN npm ci
+RUN corepack enable && corepack prepare yarn@4.5.2 --activate
+RUN yarn install
 
 # Copie o restante dos arquivos da aplicação
-COPY --chown=app:app . /app
+COPY --chown=app:app ./apps/frontend /app

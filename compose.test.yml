@@ -17,7 +17,10 @@ services:
 
   backend:
     container_name: rbo-backend-test
-    command: npm run test:cov
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    command: yarn run test:cov
     env_file:
       - ./apps/backend/.env
     ports:
@@ -26,7 +29,10 @@ services:
   
   frontend:
     container_name: rbo-frontend-test
-    command: npm run test
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    command: yarn run test
     env_file:
       - ./apps/frontend/.env
     ports:

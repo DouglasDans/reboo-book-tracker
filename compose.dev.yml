@@ -16,7 +16,10 @@ services:
       - ./data/pgadmin4:/var/lib/pgadmin4
 
   backend:
-    command: npm run start:dev
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    command: yarn run start:dev
     env_file:
       - ./apps/backend/.env
     ports:
@@ -39,7 +42,10 @@ services:
           target: /app/.env
   
   frontend:
-    command: npm run dev
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    command: yarn run dev
     env_file:
       - ./apps/frontend/.env
     ports:

@@ -17,10 +17,10 @@ services:
 
   backend:
     container_name: rbo-backend-prod
-    build: 
-      context: ./apps/backend
-      dockerfile: Dockerfile.prod
-    command: npm run start:prod
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile.prod
+    command: yarn run start:prod
     env_file:
       - ./apps/backend/.env
     ports:
@@ -28,10 +28,10 @@ services:
   
   frontend:
     container_name: rbo-frontend-prod
-    command: npm run start
-    build: 
-      context: ./apps/frontend
-      dockerfile: Dockerfile.prod
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile.prod
+    command: yarn run start
     env_file:
       - ./apps/frontend/.env
     ports:

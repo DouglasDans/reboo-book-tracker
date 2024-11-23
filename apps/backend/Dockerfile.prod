@@ -5,12 +5,15 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # Copie os arquivos de dependências para o contêiner
-COPY package*.json ./
+COPY ./yarn.lock ./
+COPY ./.yarnrc.yml ./
+COPY ./apps/backend/package.json ./
 
 # Instale as dependências
-RUN npm ci
+RUN corepack enable && corepack prepare yarn@4.5.2 --activate
+RUN yarn install --production
 
 # Copie o restante dos arquivos da aplicação
-COPY --chown=app:app . /app
+COPY ./apps/backend .
 
-RUN npx prisma generate
+RUN yarn prisma generate
