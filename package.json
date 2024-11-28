@@ -1,0 +1,35 @@
+{
+  "name": "reboo-book-tracker",
+  "version": "0.1.1",
+  "description": "Organize sua biblioteca virtual, acompanhe seu progresso e estabeleça metas de leitura. Crie coleções, adicione livros por ISBN, defina sessões de leitura e visualize seus hábitos através de gráficos interativos.",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend"
+  ],
+  "scripts": {
+    "backend:dev": "yarn workspace backend start:dev",
+    "backend:test:": "yarn workspace backend test",
+    "backend:build": "yarn workspace backend start:prod-p",
+    "frontend:dev": "yarn workspace frontend dev",
+    "frontend:test": "yarn workspace frontend lint",
+    "frontend:build": "yarn workspace frontend build",
+    "frontend:start": "yarn workspace frontend start",
+    "docker:dev": "docker compose -f compose.yml -f compose.dev.yml up --watch",
+    "docker:dev:build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
+    "docker:test:build": "docker compose -f compose.yml -f compose.test.yml up --build",
+    "docker:prod:build": "docker compose -f compose.yml -f compose.prod.yml up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DouglasDans/reboo-book-tracker.git"
+  },
+  "author": "douglasdans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DouglasDans/reboo-book-tracker/issues"
+  },
+  "homepage": "https://rebootrack.me",
+  "packageManager": "yarn@4.5.2"
+}
