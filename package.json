@@ -29,8 +29,8 @@
     "url": "https://github.com/DouglasDans/reboo-book-tracker/issues"
   },
   "homepage": "https://rebootrack.me",
+  "packageManager": "yarn@4.5.2",
   "dependencies": {
     "reboo-book-tracker": "file:"
-  },
-  "packageManager": "yarn@4.5.2"
+  }
 }
