@@ -14,7 +14,7 @@
     "backend:build": "yarn workspace backend start:prod-p",
     "frontend:dev": "yarn workspace frontend dev",
     "frontend:test": "yarn workspace frontend lint",
-    "frontend:build": "yarn workspace frontend build && start",
+    "frontend:build": "yarn workspace frontend build && yarn workspace frontend start",
     "docker:dev": "docker compose -f compose.yml -f compose.dev.yml up --watch",
     "docker:dev:build": "docker compose -f compose.yml -f compose.dev.yml up --build --watch",
     "docker:test:build": "docker compose -f compose.yml -f compose.test.yml up --build",
