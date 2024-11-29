@@ -8244,11 +8244,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reboo-book-tracker@file:, reboo-book-tracker@workspace:.":
+"reboo-book-tracker@workspace:.":
   version: 0.0.0-use.local
   resolution: "reboo-book-tracker@workspace:."
-  dependencies:
-    reboo-book-tracker: "file:"
   languageName: unknown
   linkType: soft
 

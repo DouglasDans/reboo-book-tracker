@@ -2,7 +2,7 @@
 
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { convertStringDateToDate, isValidHex } from '../index.utils'
 import BookStatusTag from '@/components/book-status-tag'
 import DropdownCardMenu from '@/components/dropdown-menu'
@@ -19,18 +19,14 @@ type Props = {
 export default function SmallScreenBanner({ book }: Props) {
   const [highlightColor, setHighlightColor] = useState<string | null>(book.highlightColor)
 
-  async function updateHighlightColor() {
-    if (highlightColor) {
-      if (highlightColor !== book.highlightColor && isValidHex(highlightColor)) {
-        book.highlightColor = highlightColor
-        await updateBookHighlightColor(book.id, highlightColor)
+  async function updateHighlightColor(color: string) {
+    if (color) {
+      if (color !== book.highlightColor && isValidHex(color)) {
+        book.highlightColor = color
+        await updateBookHighlightColor(book.id, color)
       }
     }
   }
-
-  useEffect(() => {
-    updateHighlightColor()
-  }, [highlightColor]);
 
   return (
     <section className={styles.container} >
@@ -51,15 +47,18 @@ export default function SmallScreenBanner({ book }: Props) {
           <BookStatusTag status={book.status} />
         </div>
       </div>
+
       <div className={styles.buttonsContainer}>
         <DropdownCardMenu
-          content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>
+          content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} handleSaveColor={updateHighlightColor} />}>
           <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
         </DropdownCardMenu>
+
         <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
           <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
         </Link>
       </div>
+
     </section>
   )
 }

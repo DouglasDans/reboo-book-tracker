@@ -39,18 +39,14 @@ export default function LargeScreenBanner({ book }: Props) {
     })
   }, [book.coverImage])
 
-  async function updateHighlightColor() {
-    if (highlightColor) {
-      if (highlightColor !== book.highlightColor && isValidHex(highlightColor)) {
-        book.highlightColor = highlightColor
-        await updateBookHighlightColor(book.id, highlightColor)
+  async function updateHighlightColor(color: string) {
+    if (color) {
+      if (color !== book.highlightColor && isValidHex(color)) {
+        book.highlightColor = color
+        await updateBookHighlightColor(book.id, color)
       }
     }
   }
-
-  useEffect(() => {
-    updateHighlightColor()
-  }, [highlightColor]);
 
   return (
     <div className={styles.container}>
@@ -63,11 +59,13 @@ export default function LargeScreenBanner({ book }: Props) {
 
 
         <div className={styles.bannerButtons}>
-          <DropdownCardMenu content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>
+          <DropdownCardMenu
+            content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} handleSaveColor={updateHighlightColor} />}>
             <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
           </DropdownCardMenu>
+
           <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
-            <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+            <Button textColor={highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
           </Link>
         </div>
       </div>
