@@ -6,7 +6,7 @@ type Props = {
   startDecorator?: ReactNode
   endDecorator?: ReactNode
   variant?: "primary" | "secondary"
-  notRounded: boolean
+  notRounded?: boolean
   textColor?: string | null
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   fullWidth?: boolean
