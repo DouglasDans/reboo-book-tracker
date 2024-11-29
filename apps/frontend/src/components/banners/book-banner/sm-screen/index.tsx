@@ -2,7 +2,7 @@
 
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { convertStringDateToDate, isValidHex } from '../index.utils'
 import BookStatusTag from '@/components/book-status-tag'
 import DropdownCardMenu from '@/components/dropdown-menu'
