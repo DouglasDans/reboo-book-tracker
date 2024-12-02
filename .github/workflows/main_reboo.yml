@@ -27,10 +27,10 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
         run: |
-          npm ci
-          npx prisma generate
-          npx prisma migrate deploy
-          npx nest build
+          yarn install --production
+          yarn run generate
+          yarn prisma migrate deploy
+          yarn nest build
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
