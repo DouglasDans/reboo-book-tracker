@@ -1,3 +1,3 @@
 /data
-/.idea
-/backend copy
+/.yarn
+node_modules

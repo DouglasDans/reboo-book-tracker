@@ -1,0 +1,44 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.cardContainer{
+  height: 275px;
+
+  display: flex;
+  gap: global-sizes.$gap-items-md-size;
+
+  padding: global-sizes.$card-padding;
+  border-radius: global-sizes.$card-radius;
+
+  background-color: color-variables.$background-level1-color;
+}
+
+.cardContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.imageElement{
+  height: 100%;
+  aspect-ratio: 6 / 9;
+  object-fit: cover;
+  border-radius: global-sizes.$book-cover-radius;
+}
+
+@media (max-width: 768px) {
+  .cardContainer{
+    height: 220px;
+  }
+
+  .imageElement{
+    display: none;
+  }
+}

@@ -1,0 +1,34 @@
+# 1. Usa a imagem oficial do Node.js como base
+FROM node:lts-alpine AS base
+
+# 2. Define o diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copie os arquivos de dependências para o contêiner
+COPY ./yarn.lock ./
+COPY ./.yarnrc.yml ./
+COPY ./apps/frontend/package.json ./
+
+# Instale as dependências
+RUN corepack enable && corepack prepare yarn@4.5.2 --activate
+RUN yarn install --production
+
+# Copie o restante dos arquivos da aplicação
+COPY ./apps/frontend .
+
+# 6. Gera a build da aplicação Next.js
+RUN yarn run build
+
+# 7. Usa uma imagem mais leve para rodar a aplicação em produção
+FROM node:lts-alpine AS runner
+
+WORKDIR /app
+
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/.next ./.next
+COPY --from=base /app/public ./public
+COPY --from=base /app/package.json ./package.json
+
+# 8. Define a porta em que o container vai rodar
+EXPOSE 3000
+

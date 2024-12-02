@@ -5,14 +5,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="frontend/public/reboo-logo-text.svg" alt="Logo" height="120">
+    <img src="apps/frontend/public/reboo-logo-text.svg" alt="Logo" height="120">
   </a>
 
   <h3 align="center">Reboo Book Tracker</h3>
 
   > Um sistema de gerenciamento pessoal de livros que permite aos usuários organizarem suas leituras, criar coleções e acompanhar o progresso de leitura através de estatísticas personalizadas.
 
-  <img src="frontend/public/readme-screen.png" alt="Logo" height="350">
+  <img src="apps/frontend/public/readme-screen.png" alt="Logo" height="350">
 </div>
 
 ## 🔍 Visão geral
@@ -69,7 +69,7 @@ O Reboo foi projetado para ajudar leitores a organizarem e acompanharem suas lei
 - [x]  Landing Page
 - [x]  Página de erro
 - [x]  Página 404
-- [ ]  Hospedagem e colocar em produção
+- [x]  Hospedagem e colocar em produção
 - [x]  Responsivo no Mobile
 
 #### Fase 2 - Coleções e Sessões
