@@ -14,13 +14,13 @@ export default function UserOptionsMenu({ user }: Props) {
       <div className={styles.user}>
         <Icon name="person" />
         <div className={styles.data}>
-          <span>{user.name}</span>
+          <h6>{user.name}</h6>
           <small>{user.email}</small>
         </div>
       </div>
       <div className={styles.options}>
         <Link className={styles.optionItem} href={"/logout"}>
-          <Button fullWidth variant='secondary' startDecorator={<Icon name='logout' />}>Fazer Logout</Button>
+          <Button fullWidth variant='secondary' notRounded startDecorator={<Icon name='logout' />}>Fazer Logout</Button>
         </Link>
       </div>
     </div>
