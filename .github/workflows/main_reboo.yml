@@ -27,6 +27,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
         run: |
+          corepack enable && corepack prepare yarn@4.5.2 --activate
           yarn install --production
           yarn run generate
           yarn prisma migrate deploy
