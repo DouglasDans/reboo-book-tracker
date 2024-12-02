@@ -22,7 +22,7 @@ jobs:
           node-version: '20.x'
 
       - name: npm install, build, and test
-        working-directory: ./backend 
+        working-directory: ./apps/backend 
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
@@ -39,4 +39,4 @@ jobs:
           app-name: 'Reboo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_936E9EE84F6740F29199B4FB298C99C5 }}
-          package: ./backend
+          package: ./apps/backend
