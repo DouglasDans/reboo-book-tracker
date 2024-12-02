@@ -31,7 +31,7 @@ export default function Button({
         ${fullWidth ? styles.fullWidth : ""}
         ${notRounded ? styles.notRounded : ""}
       `}
-      style={{ color: `${variant === 'primary' && textColor !== null ? textColor : ''}` }}
+      style={{ color: `${textColor !== null ? textColor : ''}` }}
       onClick={onClick}
     >
       {startDecorator}
