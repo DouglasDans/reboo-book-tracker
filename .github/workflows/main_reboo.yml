@@ -28,7 +28,7 @@ jobs:
           JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
         run: |
           corepack enable && corepack prepare yarn@4.5.2 --activate
-          yarn install --production
+          yarn install
           yarn run generate
           yarn prisma migrate deploy
           yarn nest build
