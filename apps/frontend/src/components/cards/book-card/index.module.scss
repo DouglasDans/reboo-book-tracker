@@ -28,6 +28,8 @@
 
 .imageElement{
   height: 100%;
+  aspect-ratio: 6 / 9;
+  object-fit: cover;
   border-radius: global-sizes.$book-cover-radius;
 }
 
