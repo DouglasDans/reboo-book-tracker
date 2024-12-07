@@ -8,7 +8,6 @@ import {
 } from 'class-validator'
 import { BookStatus, BookStatusEnum } from '../enums'
 import { PartialType } from '@nestjs/mapped-types'
-import { Author, Book } from '../entities'
 
 export class CreateBookDto {
   @IsString()
@@ -16,11 +15,11 @@ export class CreateBookDto {
 
   @IsOptional()
   @IsString()
-  isbn_10: string
+  isbn_10?: string
 
   @IsOptional()
   @IsString()
-  isbn_13: string
+  isbn_13?: string
 
   @IsInt()
   totalPages: number
@@ -30,26 +29,26 @@ export class CreateBookDto {
 
   @IsOptional()
   @IsDateString()
-  publicationDate: Date
+  publicationDate?: Date
 
   @IsOptional()
   @IsString()
-  description: string
+  description?: string
 
   @IsEnum(BookStatusEnum)
   status: BookStatus
 
   @IsOptional()
   @IsString()
-  coverImage: string
+  coverImage?: string
 
   @IsOptional()
   @IsString()
-  highlightColor: string
+  highlightColor?: string
 
   @IsOptional()
   @IsString()
-  language: string
+  language?: string
 
   @IsOptional()
   @IsString()
