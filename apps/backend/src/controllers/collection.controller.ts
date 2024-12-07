@@ -7,27 +7,34 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  Query,
 } from '@nestjs/common'
 import { CreateCollectionDto, UpdateCollectionDto } from 'src/core/dtos'
+import { CollectionQueryParams } from 'src/core/pipes/collection.pipes'
 import { CollectionService } from 'src/use-cases/collection'
 
 @Controller('api/v1/collection')
 export class CollectionController {
-  constructor(private readonly collectionUseCases: CollectionService) {}
+  constructor(private readonly collectionService: CollectionService) {}
 
   @Post()
   create(@Body() createCollectionDto: CreateCollectionDto) {
-    return this.collectionUseCases.createCollection(createCollectionDto)
+    return this.collectionService.createCollection(createCollectionDto)
   }
 
   @Get()
-  findAll() {
-    return this.collectionUseCases.getAllCollections()
+  find(@Query() collectionQueryParams: CollectionQueryParams) {
+    if (collectionQueryParams.userId) {
+      return this.collectionService.getAllCollectionsByUserId(
+        parseInt(collectionQueryParams.userId),
+      )
+    }
+    return this.collectionService.getAllCollections()
   }
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.collectionUseCases.getCollectionById(id)
+    return this.collectionService.getCollectionById(id)
   }
 
   @Patch(':id')
@@ -35,11 +42,11 @@ export class CollectionController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateCollectionDto: UpdateCollectionDto,
   ) {
-    return this.collectionUseCases.updateCollection(id, updateCollectionDto)
+    return this.collectionService.updateCollection(id, updateCollectionDto)
   }
 
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.collectionUseCases.deleteCollection(id)
+    return this.collectionService.deleteCollection(id)
   }
 }

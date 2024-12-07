@@ -15,6 +15,10 @@ export class CollectionService {
     return this.collection.findAll()
   }
 
+  getAllCollectionsByUserId(userId: number): Promise<Collection[]> {
+    return this.collection.findAllByUserId(userId)
+  }
+
   getCollectionById(id: number): Promise<Collection> {
     return this.collection.findById(id)
   }

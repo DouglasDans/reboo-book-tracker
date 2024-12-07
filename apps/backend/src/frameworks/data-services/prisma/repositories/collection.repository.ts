@@ -21,6 +21,12 @@ export class PrismaCollectionRepository implements CollectionRepository {
     return this.prisma.collection.findMany()
   }
 
+  findAllByUserId(userId: number): Promise<Collection[]> {
+    return this.prisma.collection.findMany({
+      where: { userId },
+    })
+  }
+
   findById(id: number): Promise<Collection> {
     return this.prisma.collection.findUnique({
       where: { id },

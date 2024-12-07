@@ -3,6 +3,8 @@ import { Collection } from '../entities'
 export abstract class CollectionRepository {
   abstract findAll(): Promise<Collection[]>
 
+  abstract findAllByUserId(userId: number): Promise<Collection[]>
+
   abstract findById(id: number): Promise<Collection>
 
   abstract create(item: Collection): Promise<Collection>
