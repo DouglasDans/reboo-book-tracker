@@ -1,5 +1,5 @@
 import api from "./api.config"
-import { Book, BookDataRequest, BookStatus, User } from "./api.types"
+import { Book, BookDataRequest, BookStatus, Collection, User } from "./api.types"
 
 export async function loginUser(
   email: string,
@@ -74,4 +74,16 @@ export async function updateBookStatus(
 
 export async function deleteBook(bookId: number): Promise<Book> {
   return await api.delete(`/book/${bookId}`)
+}
+
+// -----
+
+export async function getAllCollectionsByUserId(
+  userId: number,
+): Promise<Collection[]> {
+  return await api.get(`/collection?userId=${userId}`)
+}
+
+export async function getCollectionById(collectionId: number): Promise<Collection> {
+  return await api.get(`/collection/${collectionId}`)
 }
