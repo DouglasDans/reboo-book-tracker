@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "backend:dev": "yarn workspace backend start:dev",
-    "backend:test:": "yarn workspace backend test",
+    "backend:test": "yarn workspace backend test",
     "backend:build": "yarn workspace backend start:prod-p",
     "frontend:dev": "yarn workspace frontend dev",
     "frontend:test": "yarn workspace frontend lint",
