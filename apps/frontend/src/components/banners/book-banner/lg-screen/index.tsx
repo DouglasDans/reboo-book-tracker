@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from 'react'
 import { convertStringDateToDate, isValidHex, isValidImageUrl } from '../index.utils'
 
 import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
-import DropdownCardMenu from '@/components/dropdown-menu'
-import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
+import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
+import ColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/ColorPickerMenu'
 import BookStatusTag from '@/components/book-status-tag'
 import Link from 'next/link'
 
@@ -59,10 +59,10 @@ export default function LargeScreenBanner({ book }: Props) {
 
 
         <div className={styles.bannerButtons}>
-          <DropdownCardMenu
+          <ToggleDropdownMenu
             content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} handleSaveColor={updateHighlightColor} />}>
             <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
-          </DropdownCardMenu>
+          </ToggleDropdownMenu>
 
           <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
             <Button textColor={highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>

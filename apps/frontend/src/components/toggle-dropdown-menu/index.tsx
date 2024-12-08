@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function DropdownCardMenu({ children, content }: Props) {
+export default function ToggleDropdownMenu({ children, content }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [dropdownMargin, setDropdownMargin] = useState<string>()
   const cardRef = useRef<HTMLDivElement>(null)
