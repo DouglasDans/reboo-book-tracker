@@ -15,7 +15,7 @@ type Props = {
   listNoWrap?: boolean
 }
 
-export default function CollectionBookList({
+export default function BookList({
   title = "Sem Título",
   controlsDisabled = false,
   listNoWrap = false,

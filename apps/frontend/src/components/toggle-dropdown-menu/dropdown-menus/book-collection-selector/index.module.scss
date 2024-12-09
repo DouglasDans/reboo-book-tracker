@@ -1,0 +1,8 @@
+@use 'styles/global-sizes';
+
+.container{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size
+}
