@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.scss'
-import BookItemButton from '@/components/buttons/book-item-button'
+import ListItemButton from '@/components/buttons/list-item-button'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 
@@ -11,7 +11,9 @@ export default function MenuBookCollectionSelector({ }: Props) {
       <input type='text' placeholder='Pesquisar nos seus livros' />
 
       <div>
-        <BookItemButton />
+        <ListItemButton startDecorator={<Icon name='book' />}>
+          Harry Potter e a Pedra Filosofal
+        </ListItemButton>
       </div>
 
       <Button
