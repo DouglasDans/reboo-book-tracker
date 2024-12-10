@@ -10,7 +10,16 @@ export default function MenuBookCollectionSelector({ }: Props) {
       <h6>Adicionar Livros</h6>
       <input type='text' placeholder='Pesquisar nos seus livros' />
 
-      <div>
+      <div className={styles.listItems}>
+        <ListItemButton startDecorator={<Icon name='book' />}>
+          Harry Potter e a Pedra Filosofal
+        </ListItemButton>
+        <ListItemButton startDecorator={<Icon name='book' />}>
+          Harry Potter e a Pedra Filosofal
+        </ListItemButton>
+        <ListItemButton startDecorator={<Icon name='book' />}>
+          Harry Potter e a Pedra Filosofal
+        </ListItemButton>
         <ListItemButton startDecorator={<Icon name='book' />}>
           Harry Potter e a Pedra Filosofal
         </ListItemButton>
