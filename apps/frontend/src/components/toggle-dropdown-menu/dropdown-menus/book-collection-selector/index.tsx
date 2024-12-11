@@ -21,7 +21,13 @@ export default function MenuBookCollectionSelector() {
   }
 
   function handleSelectBook(book: Book) {
-    setSelectedBooks([...selectedBooks, book])
+    if (!selectedBooks.some(selectedBook => selectedBook.id === book.id)) {
+      setSelectedBooks([book, ...selectedBooks,])
+    }
+  }
+
+  function handleRemoveSelectedBook(book: Book) {
+    setSelectedBooks(selectedBooks.filter(selectedBook => selectedBook.id !== book.id))
   }
 
   useEffect(() => {
@@ -34,36 +40,41 @@ export default function MenuBookCollectionSelector() {
       <input type='text' placeholder='Pesquisar nos seus livros' />
 
       <div className={styles.listItems}>
-        {userBooks.map((book, index) => {
-          if (index < 3) {
-            return (
-              <ListItemButton
-                key={book.id}
-                startDecorator={<Icon name='book' color={book.highlightColor} />}
-                endDecorator={<Icon name='check_box_outline_blank' />}
-                onClick={() => { handleSelectBook(book) }}
-              >
-                {book.title}
-              </ListItemButton>
-            )
-          }
-        })}
-      </div>
-
-      <div className={styles.listItems}>
-        <h6>Livros que serão adicionados</h6>
-        {selectedBooks.map((book, index) => {
+        {userBooks.map((book) => {
           return (
             <ListItemButton
               key={book.id}
               startDecorator={<Icon name='book' color={book.highlightColor} />}
-              endDecorator={<Icon name='check_box' />}
+              endDecorator={<Icon name='add' />}
+              onClick={() => { handleSelectBook(book) }}
             >
               {book.title}
             </ListItemButton>
           )
         })}
       </div>
+
+      {selectedBooks.length > 0 &&
+        <div className={styles.addListContainer}>
+          <h6>Livros que serão adicionados</h6>
+          <div className={styles.listItems}>
+            {selectedBooks.map((book) => {
+              return (
+                <ListItemButton
+                  key={book.id}
+                  startDecorator={<Icon name='book' color={book.highlightColor} />}
+                  endDecorator={<Icon name='remove' />}
+                  onClick={() => { handleRemoveSelectedBook(book) }}
+                >
+                  {book.title}
+                </ListItemButton>
+              )
+            })}
+          </div>
+        </div>
+      }
+
+
 
       <Button
         notRounded
