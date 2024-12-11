@@ -1,3 +1,5 @@
+"use server"
+
 import api from "./api.config"
 import { Book, BookDataRequest, BookStatus, Collection, User } from "./api.types"
 
