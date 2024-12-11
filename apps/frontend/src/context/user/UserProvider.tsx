@@ -4,7 +4,7 @@ import { User } from "@/services/rebooAPI/api.types"
 import { createContext, ReactNode } from "react"
 
 interface Props {
-  value: User
+  value: User | number
   children: ReactNode
 }
 
