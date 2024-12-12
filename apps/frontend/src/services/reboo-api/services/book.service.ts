@@ -1,30 +1,10 @@
-import api from "./api.config"
-import { Book, BookDataRequest, BookStatus, User } from "./api.types"
+"use server"
 
-export async function loginUser(
-  email: string,
-  password: string,
-): Promise<{ access_token: string; userId: number }> {
-  return await api.post("auth", {
-    email,
-    password,
-  })
-}
+import api from "../api.config"
+import { Book, BookDataRequest, BookStatus } from "../api.types"
 
-export async function createUser(data: {
-  name: string
-  email: string
-  password: string
-}) {
-  return await api.post("user", data)
-}
-
-export async function getUserById(id: number): Promise<User> {
-  return await api.get(`/user/${id}`)
-}
-
-export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
-  return await api.get(`book?userId=${userId}&select=authors`)
+export async function getBookById(id: number): Promise<Book> {
+  return await api.get(`/book/${id}`)
 }
 
 export async function getAllBooksByBookStatus(
@@ -34,15 +14,15 @@ export async function getAllBooksByBookStatus(
   return await api.get(`book?userId=${userId}&status=${status}`)
 }
 
+export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
+  return await api.get(`book?userId=${userId}&select=authors`)
+}
+
 export async function getFirstBookByBookStatus(
   userId: number,
   status: string,
 ): Promise<Book> {
   return await api.get(`book?userId=${userId}&status=${status}&onlyFirst=true`)
-}
-
-export async function getBookById(id: number): Promise<Book> {
-  return await api.get(`/book/${id}`)
 }
 
 export async function createBook(bookData: BookDataRequest): Promise<Book> {

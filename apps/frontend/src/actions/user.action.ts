@@ -1,7 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers"
-import { rebooApiService } from "@/services/reboo-api"
+import { userApiService } from "@/services/reboo-api"
 import { redirect } from "next/navigation"
 
 type loginData = {
@@ -17,7 +17,7 @@ type registerData = {
 
 export async function makeLogin(data: loginData) {
   cookies().delete("access_token")
-  const login = await rebooApiService.loginUser(data.email, data.password)
+  const login = await userApiService.loginUser(data.email, data.password)
 
   cookies().set({
     name: "access_token",
@@ -31,7 +31,7 @@ export async function makeLogin(data: loginData) {
 }
 
 export async function makeRegister(data: registerData) {
-  const createdUser = await rebooApiService
+  const createdUser = await userApiService
     .createUser({
       name: data.name,
       email: data.email,
