@@ -2,7 +2,7 @@ import Icon from '@/components/icon'
 import styles from './index.module.scss'
 import Button from '@/components/buttons/button'
 import Link from 'next/link'
-import { User } from '@/services/rebooAPI/api.types'
+import { User } from '@/api/reboo-api/api.types'
 
 type Props = {
   user: User

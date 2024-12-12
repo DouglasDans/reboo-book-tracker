@@ -6,9 +6,9 @@ import Icon from "@/components/icon"
 import { usePathname } from "next/navigation"
 import { useContext } from "react"
 import { UserContext } from "@/context/user/UserProvider"
-import ToggleDropdownMenu from "@/components/toggle-dropdown-menu"
-import UserOptionsMenu from "@/components/toggle-dropdown-menu/dropdown-menus/UserOptionsMenu"
-import { User } from "@/services/rebooAPI/api.types"
+import DropdownCardMenu from "@/components/dropdown-menu"
+import UserOptionsMenu from "@/components/dropdown-menu/menus/UserOptionsMenu"
+import { User } from "@/api/reboo-api/api.types"
 
 
 export default function Header() {

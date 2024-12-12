@@ -1,7 +1,7 @@
 "use server"
 
-import { rebooApiService } from "@/services/rebooAPI"
-import { BookDataRequest } from "@/services/rebooAPI/api.types"
+import { bookApiService } from "@/api/reboo-api"
+import { BookDataRequest } from "@/api/reboo-api/api.types"
 import { redirect } from "next/navigation"
 
 export async function createBook(formData: FormData) {
@@ -54,7 +54,7 @@ export async function createBook(formData: FormData) {
       : null,
   }
 
-  const book = await rebooApiService.createBook(bookData)
+  const book = await bookApiService.createBook(bookData)
 
   redirect("../../library/book/" + book.id)
 }
@@ -111,12 +111,12 @@ export default async function updateBook(formData: FormData) {
   }
 
   if (bookData.id) {
-    const book = await rebooApiService.updateBook(parseInt(bookData.id), bookData)
+    const book = await bookApiService.updateBook(parseInt(bookData.id), bookData)
     redirect("../../book/" + book.id)
   }
 }
 
 export async function deleteBook(bookId: number) {
-  const book = await rebooApiService.deleteBook(bookId)
+  const book = await bookApiService.deleteBook(bookId)
   return book
 }

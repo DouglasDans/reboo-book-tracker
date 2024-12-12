@@ -1,4 +1,4 @@
-import { Book } from "@/services/rebooAPI/api.types"
+import { Book } from "@/api/reboo-api/api.types"
 
 export function fetchDbBookDataToUrlParams(bookData: Book, params: URLSearchParams) {
   const authors = bookData.authors?.reduce((acc, item, index) => {

@@ -3,7 +3,7 @@ import BookEntryFormWrapper from '@/containers/library-page/book-page/edit-page/
 import BookSearchAndCoverWrapper from '@/containers/library-page/book-page/edit-page/book-search-form-wrapper'
 import { BookDataProvider } from '@/context/book/BookDataProvider'
 import { BookURLParamsProvider } from '@/context/book/BookURLParamsProvider'
-import { rebooApiService } from '@/services/rebooAPI'
+import { bookApiService } from '@/api/reboo-api'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -16,14 +16,14 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const book = await rebooApiService.getBookById(params.bookId)
+  const book = await bookApiService.getBookById(params.bookId)
   return {
     title: `Editando Livro - ${book.title} `,
   }
 }
 
 export default async function BookEditPage({ params, searchParams }: Props) {
-  const book = await rebooApiService.getBookById(params.bookId)
+  const book = await bookApiService.getBookById(params.bookId)
 
   return (
     <BookURLParamsProvider value={searchParams}>

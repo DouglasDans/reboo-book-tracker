@@ -1,10 +1,10 @@
 "use server"
 
-import { rebooApiService } from "@/services/rebooAPI"
+import { bookApiService } from "@/api/reboo-api"
 
 export default async function updateBookHighlightColor(
   bookId: number,
   hexColor: string,
 ) {
-  await rebooApiService.updateBookHighlightColor(bookId, hexColor)
+  await bookApiService.updateBookHighlightColor(bookId, hexColor)
 }

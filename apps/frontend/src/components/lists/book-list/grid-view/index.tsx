@@ -1,4 +1,4 @@
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/api/reboo-api/api.types'
 import styles from './index.module.scss'
 import GridBookItem from './item'
 
