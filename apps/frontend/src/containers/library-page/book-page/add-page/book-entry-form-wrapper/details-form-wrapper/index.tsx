@@ -6,7 +6,7 @@ import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss'
 import { UserContext } from '@/context/user/UserProvider';
-import { User } from '@/services/rebooAPI/api.types';
+import { User } from '@/api/reboo-api/api.types';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData

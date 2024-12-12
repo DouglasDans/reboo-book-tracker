@@ -8,7 +8,7 @@ import { useContext } from "react"
 import { UserContext } from "@/context/user/UserProvider"
 import DropdownCardMenu from "@/components/dropdown-menu"
 import UserOptionsMenu from "@/components/dropdown-menu/menus/UserOptionsMenu"
-import { User } from "@/services/rebooAPI/api.types"
+import { User } from "@/api/reboo-api/api.types"
 
 
 export default function Header() {

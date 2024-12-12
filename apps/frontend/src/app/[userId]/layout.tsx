@@ -1,7 +1,7 @@
 import { UserProvider } from "@/context/user/UserProvider"
 import MainLayout from "@/layout/main-layout"
 import { ReactNode } from "react"
-import { rebooApiService } from "@/services/rebooAPI"
+import { userApiService } from "@/api/reboo-api"
 
 type Props = {
   children: ReactNode
@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default async function Layout({ children, params }: Props) {
-  const user = await rebooApiService.getUserById(params.userId)
+  const user = await userApiService.getUserById(params.userId)
   return (
     <UserProvider value={user}>
       <MainLayout>
