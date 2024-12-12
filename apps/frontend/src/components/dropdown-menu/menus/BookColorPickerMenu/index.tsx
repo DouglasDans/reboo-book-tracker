@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import styles from './index.module.scss'
-import { Book } from "@/services/rebooAPI/api.types";
+import { Book } from "@/services/reboo-api/api.types";
 
 export default function BookColorPickerMenu() {
   const urlParams = useContext(BookURLParamsContext) as Book

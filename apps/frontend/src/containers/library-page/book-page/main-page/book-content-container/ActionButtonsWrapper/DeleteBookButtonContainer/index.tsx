@@ -4,7 +4,7 @@ import { deleteBook } from '@/actions/book.action'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import { BookDataContext } from '@/context/book/BookDataProvider'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 

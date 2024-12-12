@@ -7,7 +7,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss';
 import { UserContext } from '@/context/user/UserProvider';
 import { BookDataContext } from '@/context/book/BookDataProvider';
-import { Book, User } from '@/services/rebooAPI/api.types';
+import { Book, User } from '@/services/reboo-api/api.types';
 import { fetchDbBookDataToUrlParams } from './index.utils';
 
 export default function DetailsForm() {

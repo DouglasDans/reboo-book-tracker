@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { getFirstBookByBookStatus } from '@/services/rebooAPI/api.services'
+import { getFirstBookByBookStatus } from '@/services/reboo-api/api.services'
 import ColorButton from '@/components/buttons/color-button'
 import Icon from '@/components/icon'
 import Link from 'next/link'

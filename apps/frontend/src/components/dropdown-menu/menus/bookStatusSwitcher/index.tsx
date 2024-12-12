@@ -2,7 +2,7 @@
 
 import StatusRadioButton from '@/components/forms/StatusRadioButton'
 import styles from './index.module.scss'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 import Button from '@/components/buttons/button'
 import updateBookStatus from '@/actions/book/updateBookStatus'
 

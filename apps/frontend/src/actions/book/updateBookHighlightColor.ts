@@ -1,6 +1,6 @@
 "use server"
 
-import { rebooApiService } from "@/services/rebooAPI"
+import { rebooApiService } from "@/services/reboo-api"
 
 export default async function updateBookHighlightColor(
   bookId: number,

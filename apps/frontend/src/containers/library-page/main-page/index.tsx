@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import BookStatsAndButtons from './book-stats-buttons-wrapper'
-import { rebooApiService } from '@/services/rebooAPI'
+import { rebooApiService } from '@/services/reboo-api'
 import CollectionBookList from '@/components/lists/collection-book-list'
 
 type Props = {

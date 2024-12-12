@@ -6,7 +6,7 @@ import Image from "next/image"
 import Icon from "@/components/icon"
 import NavLink from "./navlink-wrapper"
 import { UserContext } from "@/context/user/UserProvider"
-import { User } from "@/services/rebooAPI/api.types"
+import { User } from "@/services/reboo-api/api.types"
 
 export default function SideMenu() {
   const user = useContext(UserContext) as User

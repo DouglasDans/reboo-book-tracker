@@ -1,7 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers"
-import { rebooApiService } from "@/services/rebooAPI"
+import { rebooApiService } from "@/services/reboo-api"
 import { redirect } from "next/navigation"
 
 type loginData = {

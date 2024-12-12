@@ -1,6 +1,6 @@
 'use client'
 
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 import styles from './index.module.scss'
 import { useState } from 'react'
 import { convertStringDateToDate, isValidHex } from '../index.utils'

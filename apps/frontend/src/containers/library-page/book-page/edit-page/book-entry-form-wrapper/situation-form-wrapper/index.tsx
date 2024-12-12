@@ -1,7 +1,7 @@
 import StatusRadioButton from '@/components/forms/StatusRadioButton'
 import styles from './index.module.scss'
 import Button from '@/components/buttons/button'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 
 type Props = {
   book: Book

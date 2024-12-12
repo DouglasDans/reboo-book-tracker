@@ -1,4 +1,4 @@
-import { Author, Category } from "@/services/rebooAPI/api.types"
+import { Author, Category } from "@/services/reboo-api/api.types"
 
 type AuthorArr = {
   author: Author

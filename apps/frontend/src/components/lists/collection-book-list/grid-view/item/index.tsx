@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import styles from './index.module.scss'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 import { useEffect, useState } from 'react'
 
 type Props = {

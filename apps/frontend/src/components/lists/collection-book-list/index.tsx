@@ -1,6 +1,6 @@
 'use client'
 
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/services/reboo-api/api.types'
 import styles from './index.module.scss'
 import BookGridView from './grid-view'
 import BookListView from './list-view'
