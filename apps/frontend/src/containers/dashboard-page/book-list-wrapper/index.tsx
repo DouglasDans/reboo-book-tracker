@@ -1,5 +1,5 @@
 import CollectionBookList from "@/components/lists/collection-book-list"
-import { getAllBooksByBookStatus } from "@/services/reboo-api/services/book.service"
+import { getAllBooksByBookStatus } from "@/api/reboo-api/services/book.service"
 import { Fragment } from "react"
 
 type Props = {

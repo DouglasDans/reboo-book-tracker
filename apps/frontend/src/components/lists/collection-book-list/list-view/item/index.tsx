@@ -1,6 +1,6 @@
 import Icon from '@/components/icon'
 import styles from './index.module.scss'
-import { Book } from '@/services/reboo-api/api.types'
+import { Book } from '@/api/reboo-api/api.types'
 import Link from 'next/link'
 
 type Props = {

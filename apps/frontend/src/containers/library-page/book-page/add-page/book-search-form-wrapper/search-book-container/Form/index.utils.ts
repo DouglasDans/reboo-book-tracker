@@ -1,7 +1,7 @@
 import {
   GoogleBookResponse,
   GoogleISBNResponse,
-} from "@/services/GoogleBooksAPI/api.types"
+} from "@/api/GoogleBooksAPI/api.types"
 
 export function formatISBN(isbn: string): string {
   return isbn.replace(/-/gi, "")

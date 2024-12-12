@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { Book } from '@/services/reboo-api/api.types'
+import { Book } from '@/api/reboo-api/api.types'
 import { convertAuthorsArrayToString, convertCategoriesArrayToString, convertStringToDate } from './index.utils'
 
 type Props = {

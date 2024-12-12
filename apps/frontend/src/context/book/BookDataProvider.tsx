@@ -1,6 +1,6 @@
 "use client"
 
-import { Book } from "@/services/reboo-api/api.types"
+import { Book } from "@/api/reboo-api/api.types"
 import { createContext, ReactNode } from "react"
 
 interface Props {

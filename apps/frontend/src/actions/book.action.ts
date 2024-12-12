@@ -1,7 +1,7 @@
 "use server"
 
-import { bookApiService } from "@/services/reboo-api"
-import { BookDataRequest } from "@/services/reboo-api/api.types"
+import { bookApiService } from "@/api/reboo-api"
+import { BookDataRequest } from "@/api/reboo-api/api.types"
 import { redirect } from "next/navigation"
 
 export async function createBook(formData: FormData) {

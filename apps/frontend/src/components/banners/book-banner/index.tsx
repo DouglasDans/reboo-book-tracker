@@ -2,7 +2,7 @@
 
 import React, { Fragment } from 'react'
 import LargeScreenBanner from './lg-screen'
-import { Book } from '@/services/reboo-api/api.types'
+import { Book } from '@/api/reboo-api/api.types'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import SmallScreenBanner from './sm-screen'
 

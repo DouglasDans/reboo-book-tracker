@@ -1,7 +1,7 @@
 import { UserProvider } from "@/context/user/UserProvider"
 import MainLayout from "@/layout/main-layout"
 import { ReactNode } from "react"
-import { userApiService } from "@/services/reboo-api"
+import { userApiService } from "@/api/reboo-api"
 
 type Props = {
   children: ReactNode

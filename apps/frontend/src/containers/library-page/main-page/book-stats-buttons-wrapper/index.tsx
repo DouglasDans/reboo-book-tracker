@@ -3,7 +3,7 @@ import ColorButton from '@/components/buttons/color-button'
 import Icon from '@/components/icon'
 import Link from 'next/link'
 import BookCard from '@/components/cards/book-card'
-import { getFirstBookByBookStatus } from '@/services/reboo-api/services/book.service'
+import { getFirstBookByBookStatus } from '@/api/reboo-api/services/book.service'
 
 type Props = {
   params: {

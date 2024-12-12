@@ -1,7 +1,7 @@
 "use server"
 
-import { bookApiService } from "@/services/reboo-api"
-import { BookStatus } from "@/services/reboo-api/api.types"
+import { bookApiService } from "@/api/reboo-api"
+import { BookStatus } from "@/api/reboo-api/api.types"
 import { redirect } from "next/navigation"
 
 export default async function updateBookStatus(bookId: number, data: FormData) {

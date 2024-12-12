@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import BookStatsAndButtons from './book-stats-buttons-wrapper'
 import CollectionBookList from '@/components/lists/collection-book-list'
-import { getAllBooksAndAuthors } from '@/services/reboo-api/services/book.service'
+import { getAllBooksAndAuthors } from '@/api/reboo-api/services/book.service'
 
 type Props = {
   params: {

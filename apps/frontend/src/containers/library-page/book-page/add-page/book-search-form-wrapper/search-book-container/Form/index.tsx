@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './index.module.scss'
-import { googleBooksService } from "@/services/GoogleBooksAPI"
+import { googleBooksService } from "@/api/GoogleBooksAPI"
 import { formatISBN, setBookDataToParams } from './index.utils'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import Button from '@/components/buttons/button'
