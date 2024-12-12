@@ -1,6 +1,6 @@
 import React from 'react'
 import CollectionBannerContainer from './banner-container'
-import { Collection } from '@/services/rebooAPI/api.types'
+import { Collection } from '@/api/reboo-api/api.types'
 
 type Props = {
   collection: Collection

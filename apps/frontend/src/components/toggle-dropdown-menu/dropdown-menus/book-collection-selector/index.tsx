@@ -6,8 +6,8 @@ import ListItemButton from '@/components/buttons/list-item-button'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import { UserContext } from '@/context/user/UserProvider'
-import { getAllBooksAndAuthors } from '@/services/rebooAPI/api.services'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/api/reboo-api/api.types'
+import { bookApiService } from '@/api/reboo-api';
 
 export default function MenuBookCollectionSelector() {
   const userId = useContext(UserContext) as number
@@ -16,7 +16,7 @@ export default function MenuBookCollectionSelector() {
   const [selectedBooks, setSelectedBooks] = useState<Book[]>([])
 
   async function getUserBooks() {
-    const books = await getAllBooksAndAuthors(userId)
+    const books = await bookApiService.getAllBooksAndAuthors(userId)
     setUserBooks(books)
   }
 

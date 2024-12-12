@@ -1,6 +1,6 @@
+import { collectionApiService } from "@/api/reboo-api"
 import CollectionPage from "@/containers/library-page/collection-page"
 import { UserProvider } from "@/context/user/UserProvider"
-import { getCollectionById } from "@/services/rebooAPI/api.services"
 import { Metadata } from "next"
 
 type Props = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 }
 
 export default async function page({ params }: Props) {
-  const collectionData = await getCollectionById(params.collectionId)
+  const collectionData = await collectionApiService.getCollectionById(params.collectionId)
 
   return (
     <UserProvider value={params.userId}>
