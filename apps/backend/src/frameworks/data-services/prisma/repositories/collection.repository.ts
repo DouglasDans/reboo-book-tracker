@@ -30,6 +30,7 @@ export class PrismaCollectionRepository implements CollectionRepository {
   findById(id: number): Promise<Collection> {
     return this.prisma.collection.findUnique({
       where: { id },
+      include: { books: { select: { book: true } } },
     })
   }
 
