@@ -8,18 +8,45 @@ import {
   Delete,
   ParseIntPipe,
   Query,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common'
 import { CreateCollectionDto, UpdateCollectionDto } from 'src/core/dtos'
+import { CreateBookCollectionDto } from 'src/core/dtos/book-collection.dto'
 import { CollectionQueryParams } from 'src/core/pipes/collection.pipes'
+import { BookCollectionService } from 'src/use-cases/book-collection'
 import { CollectionService } from 'src/use-cases/collection'
 
 @Controller('api/v1/collection')
 export class CollectionController {
-  constructor(private readonly collectionService: CollectionService) {}
+  constructor(
+    private readonly collectionService: CollectionService,
+    private readonly bookCollectionService: BookCollectionService,
+  ) {}
 
   @Post()
   create(@Body() createCollectionDto: CreateCollectionDto) {
     return this.collectionService.createCollection(createCollectionDto)
+  }
+
+  @Post('/books')
+  async addBooksIntoCollection(
+    @Body() createBookCollectionDto: CreateBookCollectionDto,
+  ) {
+    try {
+      return await this.bookCollectionService.createRelationInBatch(
+        createBookCollectionDto,
+      )
+    } catch (error: unknown | Error) {
+      if (error instanceof Error) {
+        throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+      } else {
+        throw new HttpException(
+          'Erro desconhecido',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        )
+      }
+    }
   }
 
   @Get()
