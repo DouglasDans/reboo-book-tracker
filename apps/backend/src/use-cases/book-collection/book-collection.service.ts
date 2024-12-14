@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { BookCollectionRepository } from 'src/core/repositories/book-collection.repository'
-import { CreateBookCollectionDto } from 'src/core/dtos/book-collection.dto'
 
 @Injectable()
 export class BookCollectionService {
@@ -10,10 +9,7 @@ export class BookCollectionService {
     return this.bookCollection.createRelation(bookId, collectionId)
   }
 
-  async createRelationInBatch(
-    createBookCollectionDto: CreateBookCollectionDto,
-  ) {
-    const { bookIds, collectionId } = createBookCollectionDto
+  async createRelationInBatch(collectionId: number, bookIds: number[]) {
     try {
       await Promise.all(
         bookIds.map(async (bookId) => {

@@ -29,13 +29,15 @@ export class CollectionController {
     return this.collectionService.createCollection(createCollectionDto)
   }
 
-  @Post('/books')
+  @Post(':id')
   async addBooksIntoCollection(
+    @Param('id', ParseIntPipe) collectionId: number,
     @Body() createBookCollectionDto: CreateBookCollectionDto,
   ) {
     try {
       return await this.bookCollectionService.createRelationInBatch(
-        createBookCollectionDto,
+        collectionId,
+        createBookCollectionDto.bookIds,
       )
     } catch (error: unknown | Error) {
       if (error instanceof Error) {
