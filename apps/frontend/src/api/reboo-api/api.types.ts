@@ -76,7 +76,7 @@ export interface Collection {
   updatedAt: Date
   userId: number
 
-  books?: Array<Book>
+  books?: Array<{ book: Book }>
   user?: Array<User>
 }
 
