@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import BookStatsAndButtons from './book-stats-buttons-wrapper'
-import { getAllBooksAndAuthors } from '@/api/reboo-api/services/book.service'
-import BookList from '@/components/lists/book-list'
+import ListItems from '@/components/lists/book-list'
+import { bookApiService, collectionApiService } from '@/api/reboo-api';
 
 type Props = {
   params: {
@@ -10,11 +10,13 @@ type Props = {
 }
 
 export default async function LibraryPage({ params }: Props) {
-  const books = await getAllBooksAndAuthors(params.userId)
+  const books = await bookApiService.getAllBooksAndAuthors(params.userId)
+  const collections = await collectionApiService.getAllCollectionsByUserId(params.userId)
   return (
     <Fragment>
       <BookStatsAndButtons params={params} />
-      <BookList title='Todos os livros' books={books} />
+      <ListItems title='Suas Coleções' listType='collections' data={collections} />
+      <ListItems title='Todos os livros' data={books} />
     </Fragment>
   )
 }
