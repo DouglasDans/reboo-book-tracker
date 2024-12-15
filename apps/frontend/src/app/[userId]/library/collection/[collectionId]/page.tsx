@@ -1,5 +1,5 @@
 import { collectionApiService } from "@/api/reboo-api"
-import CollectionPage from "@/containers/library-page/collection-page"
+import CollectionPage from "@/containers/library-page/collection-page/main-page"
 import { UserProvider } from "@/context/user/UserProvider"
 import { Metadata } from "next"
 
