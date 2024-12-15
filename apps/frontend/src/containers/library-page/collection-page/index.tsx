@@ -1,7 +1,7 @@
 import React from 'react'
 import CollectionBannerContainer from './banner-container'
 import { Book, Collection } from '@/api/reboo-api/api.types'
-import ListItems from '@/components/lists/book-list'
+import ListItems from '@/components/list-items'
 
 type Props = {
   collection: Collection
