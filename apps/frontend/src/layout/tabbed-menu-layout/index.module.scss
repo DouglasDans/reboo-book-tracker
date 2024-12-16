@@ -1,0 +1,19 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.container{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .contentContainer{
+    display: flex;
+    flex-direction: column;
+  
+    padding: global-sizes.$padding-menu-size;
+    gap: global-sizes.$gap-sections-size;
+  
+    border: 2px solid color-variables.$background-level2-color;
+    border-radius: global-sizes.$radius-item-size;
+  }
+}
