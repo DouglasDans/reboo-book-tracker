@@ -1,3 +1,4 @@
+import Icon from '@/components/icon'
 import TabbedMenuLayout from '@/layout/tabbed-menu-layout'
 import { FormCollection } from '@/types/forms.types'
 import React, { ReactNode } from 'react'
@@ -18,9 +19,14 @@ export default function Layout({ children, params }: Props) {
 
   const tabs = [
     {
-      title: "Adicionar Coleção",
-      icon: "add",
-      link: "https://google.com"
+      title: "Informações",
+      icon: <Icon name='collections_bookmark' />,
+      link: "?step=1"
+    },
+    {
+      title: "Gerenciar Livros",
+      icon: <Icon name='book' />,
+      link: "?step=2"
     }
   ]
 
