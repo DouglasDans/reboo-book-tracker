@@ -4,7 +4,7 @@ import React, { useContext } from "react"
 import styles from "./index.module.scss"
 import Image from "next/image"
 import Icon from "@/components/icon"
-import NavLink from "./navlink-wrapper"
+import NavLink from "../../../components/buttons/navlink-button"
 import { UserContext } from "@/context/user/UserProvider"
 import { User } from "@/api/reboo-api/api.types"
 

@@ -11,7 +11,7 @@ type Props = {
   href: string
 }
 
-export default function NavLink({ title, icon, href }: Props) {
+export default function NavLinkButton({ title, icon, href }: Props) {
   const pathname = usePathname()
   const isActive: boolean = pathname.includes(href) ? true : false
 
