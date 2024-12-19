@@ -1,0 +1,22 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size  
+}
+
+.inputContainer{
+  display: flex;
+  gap: global-sizes.$gap-items-md-size  
+}
+
+.input {
+  display: block;
+  background-color: color-variables.$highlight-color;
+  border-radius: global-sizes.$form-input-radius;
+
+  width: 100%;
+  height: auto;
+}
