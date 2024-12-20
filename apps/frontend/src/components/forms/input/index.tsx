@@ -9,11 +9,12 @@ type Props = {
   type: string
   onChange: React.ChangeEventHandler<HTMLInputElement>
   value: string | number
+  className?: string
 }
 
-export default function Input({ title, placeholder, name, id, type, onChange, value }: Props) {
+export default function Input({ title, placeholder, name, id, type, onChange, value, className }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className || ''}`}>
       <label>
         {title}
       </label>
