@@ -4,14 +4,14 @@ import styles from './index.module.scss'
 type Props = {
   title?: string
   placeholder?: string
-  name?: string
+  name: string
   id?: string
   type: string
-  setState?: () => void
-  value?: string | number
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+  value: string | number
 }
 
-export default function Input({ title, placeholder, name, id, type, setState, value }: Props) {
+export default function Input({ title, placeholder, name, id, type, onChange, value }: Props) {
   return (
     <div className={styles.container}>
       <label>
@@ -24,7 +24,7 @@ export default function Input({ title, placeholder, name, id, type, setState, va
         name={name}
         id={id}
         value={value}
-        onClick={setState}
+        onChange={onChange}
       />
     </div>
   )
