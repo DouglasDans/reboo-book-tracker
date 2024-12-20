@@ -3,45 +3,41 @@
 import { HexColorPicker } from "react-colorful";
 import styles from './index.module.scss'
 import Button from "@/components/buttons/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Input from "@/components/forms/input";
 
-type Props = {
-  handleSaveColor?: (arg0: string) => void,
-  highlightColorState: {
-    highlightColor: string | null,
-    setHighlightColor: React.Dispatch<React.SetStateAction<string | null>>;
-  }
+type Props<T> = {
+  value: string
+  setState: (data: Partial<T>) => void
+  name: string
 }
 
-export default function ColorPickerMenu({ highlightColorState, handleSaveColor }: Props) {
-  const [color, setColor] = useState(highlightColorState.highlightColor || "#000")
+export default function ColorPickerMenu<T>({ value, setState, name }: Props<T>) {
+  const [color, setColor] = useState(value || "#000")
 
-  useEffect(() => {
-    highlightColorState.setHighlightColor(color)
-  }, [color]);
+  function handleSaveColor() {
+    setState({ [name]: color } as Partial<T>)
+  }
 
   return (
     <div className={styles.container}>
-      <h6>Cor do banner</h6>
-
       <HexColorPicker color={color} onChange={setColor} />
 
-      <input
+      <Input
         className={styles.input}
         value={color}
         onChange={(e) => { setColor(e.target.value) }}
+        name={name}
         type="text"
         placeholder="Digite a cor em Hex"
       />
 
-      {handleSaveColor &&
-        <Button
-          fullWidth
-          notRounded
-          variant="secondary"
-          onClick={() => { handleSaveColor(color) }}
-        >Salvar</Button>
-      }
+      <Button
+        fullWidth
+        notRounded
+        variant="secondary"
+        onClick={() => { handleSaveColor() }}
+      >Salvar</Button>
     </div>
   )
 }
