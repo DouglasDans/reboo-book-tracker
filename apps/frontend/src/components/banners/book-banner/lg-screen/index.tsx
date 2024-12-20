@@ -9,7 +9,7 @@ import { convertStringDateToDate, isValidHex, isValidImageUrl } from '../index.u
 
 import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
 import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
-import ColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/ColorPickerMenu'
+import ColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/ColorPickerMenuOld'
 import BookStatusTag from '@/components/book-status-tag'
 import Link from 'next/link'
 
