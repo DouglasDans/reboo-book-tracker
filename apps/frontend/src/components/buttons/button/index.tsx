@@ -12,6 +12,7 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   fullWidth?: boolean
   className?: string
+  type?: "reset" | "submit" | "button"
 }
 
 export default function Button({
@@ -24,11 +25,13 @@ export default function Button({
   textColor,
   onClick,
   fullWidth = false,
-  className = ""
+  className = "",
+  type = "button"
 }: Props) {
 
   return (
     <button
+      type={type}
       className={`
         ${styles.button} ${styles[variant]} 
         ${!children ? (styles.fixedWidth) : (styles.fitContentWidth)} 
