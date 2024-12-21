@@ -1,3 +1,5 @@
+import { Book } from "@/api/reboo-api/api.types"
+
 export interface FormBook {
   id?: number
   title: string
@@ -24,5 +26,5 @@ export interface FormCollection {
   backgroundColors: string
   userId: number
 
-  books?: Array<number>
+  books?: Array<Book>
 }
