@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import styles from './index.module.scss'
 import Input from '@/components/forms/input'
 import InputColorSelector from '@/components/forms/input-color-selector'
