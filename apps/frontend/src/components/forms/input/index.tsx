@@ -10,9 +10,10 @@ type Props = {
   onChange: React.ChangeEventHandler<HTMLInputElement>
   value: string | number
   className?: string
+  required?: boolean
 }
 
-export default function Input({ title, placeholder, name, id, type, onChange, value, className }: Props) {
+export default function Input({ title, placeholder, name, id, type, onChange, value, className, required }: Props) {
   return (
     <div className={`${styles.container} ${className || ''}`}>
       <label>
@@ -22,6 +23,7 @@ export default function Input({ title, placeholder, name, id, type, onChange, va
         className={styles.input}
         type={type}
         placeholder={placeholder}
+        required={required}
         name={name}
         id={id}
         value={value}
