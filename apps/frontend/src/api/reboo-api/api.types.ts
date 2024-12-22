@@ -81,8 +81,8 @@ export interface Collection {
   id: number
   name: string
   backgroundColors: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: number
 
   books?: Array<{ book: Book }>

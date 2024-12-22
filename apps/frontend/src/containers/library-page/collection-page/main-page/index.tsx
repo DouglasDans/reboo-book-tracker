@@ -8,7 +8,6 @@ type Props = {
 }
 
 export default function CollectionPage({ collection }: Props) {
-
   const books: Book[] = collection.books?.map(item => item.book) || [];
 
   return (
