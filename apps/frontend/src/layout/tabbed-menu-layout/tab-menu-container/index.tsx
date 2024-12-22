@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import style from './index.module.scss'
 import NavLinkButton from '@/components/buttons/navlink-button'
 import { useSearchParams } from 'next/navigation'
+import Button from '@/components/buttons/button'
 
 type Props = {
   title: string
@@ -10,9 +11,10 @@ type Props = {
     icon: ReactNode
     link: string
   }>
+  haveSubmit?: boolean
 }
 
-export default function TabMenuContainer({ title, tabs }: Props) {
+export default function TabMenuContainer({ title, tabs, haveSubmit = false }: Props) {
 
   const searchParams = useSearchParams()
   const step = parseInt(searchParams.get("step") || '0')
@@ -33,6 +35,13 @@ export default function TabMenuContainer({ title, tabs }: Props) {
           )
         })}
       </div>
+      {haveSubmit &&
+        <div>
+          <Button type='submit' fullWidth>
+            Salvar Coleção
+          </Button>
+        </div>
+      }
     </aside>
   )
 }

@@ -1,3 +1,4 @@
+import { createCollection } from '@/actions/collection.action'
 import Icon from '@/components/icon'
 import TabbedMenuLayout from '@/layout/tabbed-menu-layout'
 import { FormCollection } from '@/types/forms.types'
@@ -36,6 +37,7 @@ export default function Layout({ children, params }: Props) {
       title='Adicionar Coleção'
       tabs={tabs}
       blankFormObject={blankFormObject}
+      submitFunction={createCollection}
     >
       {children}
     </TabbedMenuLayout>

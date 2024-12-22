@@ -1,10 +1,10 @@
 "use client"
 
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
-import { MenuTabsProvider } from '@/context/tabbed-menu-layout/MenuTabsProvider'
 import React, { ReactNode } from 'react'
 import styles from './index.module.scss'
 import TabMenuContainer from './tab-menu-container'
+import MenuDataForm from './form'
 
 type Props<Type> = {
   children: ReactNode
@@ -15,19 +15,20 @@ type Props<Type> = {
     link: string
   }>
   blankFormObject: Type
+  submitFunction?: ((arg: Type) => void) | undefined
 }
 
-export default function TabbedMenuLayout<Type>({ children, title, tabs, blankFormObject }: Props<Type>) {
+export default function TabbedMenuLayout<Type>({ children, title, tabs, blankFormObject, submitFunction }: Props<Type>) {
   return (
-    <MenuTabsProvider value={tabs}>
-      <MenuFormData.Provider initialState={blankFormObject}>
+    <MenuFormData.Provider initialState={blankFormObject}>
+      <MenuDataForm submitFunction={submitFunction}>
         <div className={styles.container}>
-          <TabMenuContainer tabs={tabs} title={title} />
+          <TabMenuContainer tabs={tabs} title={title} haveSubmit={submitFunction ? true : false} />
           <div className={styles.contentContainer}>
             {children}
           </div>
         </div>
-      </MenuFormData.Provider>
-    </MenuTabsProvider>
+      </MenuDataForm>
+    </MenuFormData.Provider>
   )
 }

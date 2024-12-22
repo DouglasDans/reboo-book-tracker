@@ -2,6 +2,8 @@
 @use 'styles/color-variables';
 
 .container{
+  height: fit-content;
+
   display: flex;
   flex-direction: column;
 
