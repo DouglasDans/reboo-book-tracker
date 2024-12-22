@@ -10,6 +10,7 @@ import { useUserContext } from '@/context/user/UserProvider'
 import { bookApiService } from '@/api/reboo-api'
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormCollection } from '@/types/forms.types'
+import Input from '@/components/forms/input'
 
 export default function Step2CollectionBooks() {
   const userData = useUserContext()
@@ -48,7 +49,8 @@ export default function Step2CollectionBooks() {
   return (
     <div className={styles.container}>
       <h6>Adicionar Livros</h6>
-      <input type='text' placeholder='Pesquisar nos seus livros' />
+
+      {/* <Input type='text' placeholder='Pesquisar nos seus livros' /> */}
 
       <div className={styles.listItems}>
         {userBooks.map((book) => {
