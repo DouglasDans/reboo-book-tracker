@@ -2,7 +2,6 @@
 
 import api from "../api.config"
 import { Collection, CollectionRequest } from "../api.types"
-import { createCollection } from "@/actions/collection.action"
 
 export async function getAllCollectionsByUserId(
   userId: number,
