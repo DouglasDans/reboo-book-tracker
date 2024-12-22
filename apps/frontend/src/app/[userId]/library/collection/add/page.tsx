@@ -1,4 +1,4 @@
-import CollectionAddPage from '@/containers/library-page/collection-page/main-page/add-page'
+import CollectionAddPage from '@/containers/library-page/collection-page/add-page'
 import React from 'react'
 
 export default function PageCollectionAdd() {
