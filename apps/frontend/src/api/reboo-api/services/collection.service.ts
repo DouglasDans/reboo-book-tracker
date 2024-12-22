@@ -1,7 +1,8 @@
 "use server"
 
 import api from "../api.config"
-import { Collection } from "../api.types"
+import { Collection, CollectionRequest } from "../api.types"
+import { createCollection } from "@/actions/collection.action"
 
 export async function getAllCollectionsByUserId(
   userId: number,
@@ -11,4 +12,17 @@ export async function getAllCollectionsByUserId(
 
 export async function getCollectionById(collectionId: number): Promise<Collection> {
   return await api.get(`/collection/${collectionId}`)
+}
+
+export async function createNewCollection(
+  collection: CollectionRequest,
+): Promise<Collection> {
+  return await api.post(`/collection`, collection)
+}
+
+export async function addBooksOnCollection(
+  collectionId: number,
+  bookIds: { bookIds: Array<number> },
+): Promise<Collection> {
+  return await api.post(`/collection/${collectionId}`, bookIds)
 }
