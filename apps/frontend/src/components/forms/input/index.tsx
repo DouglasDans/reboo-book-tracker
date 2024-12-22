@@ -7,8 +7,8 @@ type Props = {
   name: string
   id?: string
   type: string
-  onChange: React.ChangeEventHandler<HTMLInputElement>
-  value: string | number
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  value?: string | number
   className?: string
   required?: boolean
 }
