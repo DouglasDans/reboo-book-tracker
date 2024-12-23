@@ -25,6 +25,5 @@ export interface FormCollection {
   name: string
   backgroundColors: string
   userId: number
-
-  books?: Array<Book>
+  books: Array<Book>
 }

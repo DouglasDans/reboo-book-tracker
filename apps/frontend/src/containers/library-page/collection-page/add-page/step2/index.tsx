@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './index.module.scss'
-import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import ListItemButton from '@/components/buttons/list-item-button'
 import { Book } from '@/api/reboo-api/api.types'
@@ -14,17 +13,7 @@ import { FormCollection } from '@/types/forms.types'
 export default function Step2CollectionBooks() {
   const userData = useUserContext()
   const [collectionState, setCollectionState] = MenuFormData.useMenuFormData<FormCollection>()
-
   const [userBooks, setUserBooks] = useState<Book[]>([])
-  const [selectedBooks, setSelectedBooks] = useState<Book[]>([])
-
-  function pullBooksToCollectionForm() {
-    setCollectionState({
-      books: selectedBooks
-    })
-    console.log(collectionState);
-
-  }
 
   async function getUserBooks() {
     const books = await bookApiService.getAllBooksAndAuthors(userData.id)
@@ -32,13 +21,17 @@ export default function Step2CollectionBooks() {
   }
 
   function handleSelectBook(book: Book) {
-    if (!selectedBooks.some(selectedBook => selectedBook.id === book.id)) {
-      setSelectedBooks([book, ...selectedBooks,])
+    if (!(collectionState.books || []).some(selectedBook => selectedBook.id === book.id)) {
+      setCollectionState({
+        books: [book, ...collectionState.books]
+      })
     }
   }
 
   function handleRemoveSelectedBook(book: Book) {
-    setSelectedBooks(selectedBooks.filter(selectedBook => selectedBook.id !== book.id))
+    setCollectionState({
+      books: collectionState.books.filter(selectedBook => selectedBook.id !== book.id)
+    })
   }
 
   useEffect(() => {
@@ -66,11 +59,11 @@ export default function Step2CollectionBooks() {
         })}
       </div>
 
-      {selectedBooks.length > 0 &&
+      {collectionState.books.length > 0 &&
         <div className={styles.addListContainer}>
           <h6>Livros que serão adicionados</h6>
           <div className={styles.listItems}>
-            {selectedBooks.map((book) => {
+            {collectionState.books.map((book) => {
               return (
                 <ListItemButton
                   key={book.id}
@@ -86,22 +79,12 @@ export default function Step2CollectionBooks() {
         </div>
       }
 
-      {selectedBooks.length === 0 &&
+      {collectionState.books.length === 0 &&
         <div className={styles.addListContainer}>
           <h6>Livros que serão adicionados</h6>
           Selecione livros que podem ser adicionados acima
         </div>
       }
-
-      <Button
-        notRounded
-        fullWidth
-        variant='secondary'
-        startDecorator={<Icon name='bookmark_add' />}
-        onClick={() => { pullBooksToCollectionForm() }}
-      >
-        Adicionar Livros
-      </Button>
     </div>
   )
 }

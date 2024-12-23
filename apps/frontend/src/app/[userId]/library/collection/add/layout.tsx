@@ -15,7 +15,8 @@ export default function Layout({ children, params }: Props) {
   const blankFormObject: FormCollection = {
     name: "",
     backgroundColors: "",
-    userId: params.userId
+    userId: params.userId,
+    books: []
   }
 
   const tabs = [
