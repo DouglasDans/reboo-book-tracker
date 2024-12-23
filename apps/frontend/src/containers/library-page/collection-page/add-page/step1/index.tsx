@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment } from 'react'
 import styles from './index.module.scss'
 import Input from '@/components/forms/input'
@@ -6,6 +8,8 @@ import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormCollection } from '@/types/forms.types'
 import { createHandleChange } from '@/utils/form.utils'
 import Button from '@/components/buttons/button'
+import Icon from '@/components/icon'
+import { deleteCollection } from '@/actions/collection.action'
 
 type Props = {
   deleteButton?: boolean
@@ -14,6 +18,12 @@ type Props = {
 export default function Step1CollectionData({ deleteButton = false }: Props) {
   const [collectionState, setCollectionState] = MenuFormData.useMenuFormData<FormCollection>()
   const handleChange = createHandleChange(setCollectionState)
+
+  function handleDelete() {
+    if (confirm(`Você tem certeza que deseja deletar a coleção ${collectionState.name}? Isso é uma ação irreversível. Seus livros serão mantidos.`)) {
+      collectionState.id && deleteCollection(collectionState.id)
+    }
+  }
 
   return (
     <Fragment>
@@ -34,9 +44,12 @@ export default function Step1CollectionData({ deleteButton = false }: Props) {
         />
 
         {deleteButton &&
-          <div>
-            <label>Deletar Coleção</label>
-            <Button notRounded variant='secondary' textColor={'red'}>
+          <div className={styles.deleteContainer}>
+            <div>
+              <label>Deletar Coleção</label><br />
+              <small>Delete esta coleção da sua conta, os livros serão mantidos.</small>
+            </div>
+            <Button onClick={handleDelete} startDecorator={<Icon name='delete' />} notRounded variant='secondary' textColor={'#FF4949'}>
               Deletar Coleção
             </Button>
           </div>
