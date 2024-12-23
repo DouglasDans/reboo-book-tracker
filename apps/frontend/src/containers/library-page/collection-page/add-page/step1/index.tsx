@@ -5,8 +5,13 @@ import InputColorSelector from '@/components/forms/input-color-selector'
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormCollection } from '@/types/forms.types'
 import { createHandleChange } from '@/utils/form.utils'
+import Button from '@/components/buttons/button'
 
-export default function Step1CollectionData() {
+type Props = {
+  deleteButton?: boolean
+}
+
+export default function Step1CollectionData({ deleteButton = false }: Props) {
   const [collectionState, setCollectionState] = MenuFormData.useMenuFormData<FormCollection>()
   const handleChange = createHandleChange(setCollectionState)
 
@@ -27,6 +32,15 @@ export default function Step1CollectionData() {
           name='backgroundColors'
           setState={setCollectionState}
         />
+
+        {deleteButton &&
+          <div>
+            <label>Deletar Coleção</label>
+            <Button notRounded variant='secondary' textColor={'red'}>
+              Deletar Coleção
+            </Button>
+          </div>
+        }
       </div>
     </Fragment>
   )
