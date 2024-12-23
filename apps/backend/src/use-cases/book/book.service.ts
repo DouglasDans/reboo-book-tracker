@@ -123,6 +123,8 @@ export class BookService {
 
     await this.bookAuthorService.deleteRelationByBookId(bookId)
 
+    await this.bookCollectionService.deleteRelationByBookId(bookId)
+
     if (book.categories) {
       await this.bookCategoryService.deleteRelationByBookId(bookId)
     }
