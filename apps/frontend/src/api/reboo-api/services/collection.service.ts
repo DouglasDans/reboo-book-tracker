@@ -25,3 +25,7 @@ export async function addBooksOnCollection(
 ): Promise<Collection> {
   return await api.post(`/collection/${collectionId}`, bookIds)
 }
+
+export async function deleteCollectionById(collectionId: number) {
+  return await api.delete(`/collection/${collectionId}`)
+}
