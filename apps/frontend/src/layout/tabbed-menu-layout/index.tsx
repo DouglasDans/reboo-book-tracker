@@ -21,14 +21,14 @@ type Props<Type> = {
 export default function TabbedMenuLayout<Type>({ children, title, tabs, blankFormObject, submitFunction }: Props<Type>) {
   return (
     <MenuFormData.Provider initialState={blankFormObject}>
-      <div className={styles.container}>
-        <TabMenuContainer tabs={tabs} title={title} haveSubmit={submitFunction ? true : false} />
-        <div className={styles.contentContainer}>
-          <MenuDataForm submitFunction={submitFunction}>
+      <MenuDataForm submitFunction={submitFunction}>
+        <div className={styles.container}>
+          <TabMenuContainer tabs={tabs} title={title} haveSubmit={submitFunction ? true : false} />
+          <div className={styles.contentContainer}>
             {children}
-          </MenuDataForm>
+          </div>
         </div>
-      </div>
+      </MenuDataForm>
     </MenuFormData.Provider>
   )
 }

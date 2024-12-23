@@ -61,7 +61,7 @@ export default function Step2CollectionBooks() {
 
       {collectionState.books.length > 0 &&
         <div className={styles.addListContainer}>
-          <h6>Livros que serão adicionados</h6>
+          <h6>Livros Adicionados</h6>
           <div className={styles.listItems}>
             {collectionState.books.map((book) => {
               return (
