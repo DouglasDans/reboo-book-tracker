@@ -10,7 +10,6 @@ import { useUserContext } from '@/context/user/UserProvider'
 import { bookApiService } from '@/api/reboo-api'
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormCollection } from '@/types/forms.types'
-import Input from '@/components/forms/input'
 
 export default function Step2CollectionBooks() {
   const userData = useUserContext()

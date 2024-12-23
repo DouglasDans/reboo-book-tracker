@@ -31,7 +31,7 @@ export default function GridBookItem({ book }: Props) {
   }, [book.coverImage])
 
   return (
-    <Link href={`./library/book/${book.id}`} className={styles.content}>
+    <Link href={`/${book.userId}/library/book/${book.id}`} className={styles.content}>
       <div className={styles.bookCoverImage}>
         <img
           src={coverImage || "/book-image-placeholder.png"}
