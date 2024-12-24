@@ -74,7 +74,7 @@ export interface CollectionRequest {
   backgroundColors: string
   userId: number
 
-  books?: Array<{ book: Book }>
+  books?: number[]
 }
 
 export interface Collection {

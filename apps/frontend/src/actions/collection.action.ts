@@ -19,6 +19,17 @@ export async function createCollection(data: FormCollection) {
   redirect(`/${collection.userId}/library/collection/${collection.id}`)
 }
 
+export async function updateCollection(collection: FormCollection) {
+  await collectionApiService.updateCollection({
+    id: collection.id,
+    name: collection.name,
+    backgroundColors: collection.backgroundColors,
+    userId: collection.userId,
+    books: collection.books.map(book => book.id),
+  })
+  redirect(`/${collection.userId}/library/collection/${collection.id}`)
+}
+
 export async function deleteCollection(collectionId: number) {
   await collectionApiService.deleteCollectionById(collectionId)
   redirect("../../")

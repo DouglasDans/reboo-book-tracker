@@ -1,5 +1,6 @@
 "use server"
 
+import { FormCollection } from "@/types/forms.types"
 import api from "../api.config"
 import { Collection, CollectionRequest } from "../api.types"
 
@@ -24,6 +25,10 @@ export async function addBooksOnCollection(
   bookIds: { bookIds: Array<number> },
 ): Promise<Collection> {
   return await api.post(`/collection/${collectionId}`, bookIds)
+}
+
+export async function updateCollection(collection: CollectionRequest) {
+  return await api.patch(`/collection/${collection.id}`, collection)
 }
 
 export async function deleteCollectionById(collectionId: number) {

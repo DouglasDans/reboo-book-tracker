@@ -1,4 +1,4 @@
-import { createCollection } from '@/actions/collection.action'
+import { createCollection, updateCollection } from '@/actions/collection.action'
 import Icon from '@/components/icon'
 import TabbedMenuLayout from '@/layout/tabbed-menu-layout'
 import { FormCollection } from '@/types/forms.types'
@@ -41,10 +41,10 @@ export default async function Layout({ children, params }: Props) {
 
   return (
     <TabbedMenuLayout
-      title='Adicionar Coleção'
+      title='Editar Coleção'
       tabs={tabs}
       blankFormObject={initialDataForm}
-      submitFunction={createCollection}
+      submitFunction={updateCollection}
     >
       {children}
     </TabbedMenuLayout>
