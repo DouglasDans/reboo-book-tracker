@@ -96,7 +96,6 @@ export class BookService {
       this.bookCategoryService.createRelation(bookId, updateBookDto.category)
     }
 
-    console.log(book)
     return this.book.update(bookId, book)
   }
 

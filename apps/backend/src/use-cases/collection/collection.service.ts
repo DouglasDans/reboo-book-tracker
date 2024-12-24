@@ -33,12 +33,22 @@ export class CollectionService {
     return this.collection.create(collection)
   }
 
-  updateCollection(
+  async updateCollection(
     collectionId: number,
     updateCollectionDto: UpdateCollectionDto,
   ) {
     const collection =
       this.collectionFactory.updateNewCollection(updateCollectionDto)
+
+    await this.bookCollectionService.deleteRelationByCollectionId(collectionId)
+
+    if (updateCollectionDto.bookIds) {
+      await this.bookCollectionService.createRelationInBatch(
+        updateCollectionDto.id,
+        updateCollectionDto.bookIds,
+      )
+    }
+
     return this.collection.update(collectionId, collection)
   }
 
