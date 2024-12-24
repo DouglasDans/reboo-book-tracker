@@ -42,10 +42,10 @@ export class CollectionService {
 
     await this.bookCollectionService.deleteRelationByCollectionId(collectionId)
 
-    if (updateCollectionDto.bookIds) {
+    if (updateCollectionDto.books) {
       await this.bookCollectionService.createRelationInBatch(
         updateCollectionDto.id,
-        updateCollectionDto.bookIds,
+        updateCollectionDto.books,
       )
     }
 

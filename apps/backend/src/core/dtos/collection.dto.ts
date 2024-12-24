@@ -24,7 +24,7 @@ export class CreateCollectionDto {
   @ArrayNotEmpty()
   @ArrayUnique()
   @Type(() => Number)
-  bookIds?: number[]
+  books?: number[]
 }
 
 export class UpdateCollectionDto extends PartialType(CreateCollectionDto) {
