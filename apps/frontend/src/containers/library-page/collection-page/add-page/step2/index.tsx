@@ -16,8 +16,9 @@ export default function Step2CollectionBooks() {
   const [userBooks, setUserBooks] = useState<Book[]>([])
 
   async function getUserBooks() {
-    const books = await bookApiService.getAllBooksAndAuthors(userData.id)
-    setUserBooks(books)
+    const books = await bookApiService.getAllBooksAndAuthors(userData.id);
+    const newBooks = books.filter(book => !collectionState.books.some(collectionBook => collectionBook.id === book.id));
+    setUserBooks(newBooks);
   }
 
   function handleSelectBook(book: Book) {
@@ -25,6 +26,7 @@ export default function Step2CollectionBooks() {
       setCollectionState({
         books: [book, ...collectionState.books]
       })
+      setUserBooks(userBooks.filter(userBook => userBook.id !== book.id))
     }
   }
 
@@ -32,6 +34,7 @@ export default function Step2CollectionBooks() {
     setCollectionState({
       books: collectionState.books.filter(selectedBook => selectedBook.id !== book.id)
     })
+    setUserBooks([book, ...userBooks])
   }
 
   useEffect(() => {
