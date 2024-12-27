@@ -11,7 +11,7 @@ export async function createCollection(data: FormCollection) {
     userId: parseInt(data.userId.toString()),
   })
 
-  if (data.books) {
+  if (data.books.length > 0) {
     const bookIds = data.books.map(book => book.id)
     await collectionApiService.addBooksOnCollection(collection.id, { bookIds })
   }
