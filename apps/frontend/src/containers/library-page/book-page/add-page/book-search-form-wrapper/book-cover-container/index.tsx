@@ -5,9 +5,9 @@ import { useContext } from 'react'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
-import DropdownCardMenu from '@/components/dropdown-menu'
-import BookColorPickerMenu from '@/components/dropdown-menu/menus/BookColorPickerMenu'
-import BookUploadMenu from '@/components/dropdown-menu/menus/BookUploadMenu'
+import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
+import BookColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/BookColorPickerMenu'
+import BookUploadMenu from '@/components/toggle-dropdown-menu/dropdown-menus/BookUploadMenu'
 import BookCover from './book-cover'
 import { URLBookData } from '../../../index.types'
 
@@ -16,13 +16,13 @@ export default function BookCoverContainer() {
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>
-        <DropdownCardMenu content={<BookColorPickerMenu />}>
+        <ToggleDropdownMenu content={<BookColorPickerMenu />}>
           <Button variant='secondary' startDecorator={<Icon name='palette' />} />
-        </DropdownCardMenu>
+        </ToggleDropdownMenu>
 
-        <DropdownCardMenu content={<BookUploadMenu />}>
+        <ToggleDropdownMenu content={<BookUploadMenu />}>
           <Button variant='secondary' startDecorator={<Icon name='add_photo_alternate' />} />
-        </DropdownCardMenu>
+        </ToggleDropdownMenu>
       </div>
 
       <BookCover imageUrl={urlParams.imageLinks} />

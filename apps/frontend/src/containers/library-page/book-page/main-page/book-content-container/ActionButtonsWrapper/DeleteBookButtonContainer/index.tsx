@@ -17,7 +17,7 @@ export default function DeleteBookButtonContainer() {
       const deletedBook = await deleteBook(book.id) as Book
 
       if (!deletedBook.id) {
-        alert("houve um problema para deletar o liro, tente novamente mais tarde.")
+        alert("houve um problema para deletar o livro, tente novamente mais tarde.")
       }
       router.push("../")
     }

@@ -92,34 +92,3 @@ a {
   text-decoration: none !important;
   list-style: none !important;
 }
-
-input,
-textarea {
-  background-color: color-variables.$background-body-color;
-  color: color-variables.$text-primary-color;
-  border: 2px solid color-variables.$background-level2-color;
-
-  padding: global-sizes.$form-input-padding;
-  border-radius: global-sizes.$form-input-radius;
-
-  width: 100%;
-  height: auto;
-  font-size: global-sizes.$font-md-size;
-
-  transition: all 0.2s;
-
-  &:focus-visible {
-    outline: none;
-    border: 2px solid color-variables.$text-secondary-color;
-    background-color: color-variables.$form-input-color-focus;
-  }
-
-  &::placeholder {
-    color: color-variables.$text-tertiary-color;
-    font-weight: 600;
-  }
-
-  &:disabled {
-    border: 2px solid color-variables.$background-level1-color;
-  }
-}

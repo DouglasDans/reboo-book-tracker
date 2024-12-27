@@ -5,8 +5,8 @@ import styles from './index.module.scss'
 import { useState } from 'react'
 import { convertStringDateToDate, isValidHex } from '../index.utils'
 import BookStatusTag from '@/components/book-status-tag'
-import DropdownCardMenu from '@/components/dropdown-menu'
-import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
+import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
+import ColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/ColorPickerMenuOld'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import Link from 'next/link'
@@ -49,10 +49,10 @@ export default function SmallScreenBanner({ book }: Props) {
       </div>
 
       <div className={styles.buttonsContainer}>
-        <DropdownCardMenu
+        <ToggleDropdownMenu
           content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} handleSaveColor={updateHighlightColor} />}>
           <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
-        </DropdownCardMenu>
+        </ToggleDropdownMenu>
 
         <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
           <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>

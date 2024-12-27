@@ -9,6 +9,22 @@ export class BookCollectionService {
     return this.bookCollection.createRelation(bookId, collectionId)
   }
 
+  async createRelationInBatch(collectionId: number, bookIds: number[]) {
+    try {
+      await Promise.all(
+        bookIds.map(async (bookId) => {
+          await this.bookCollection.createRelation(bookId, collectionId)
+        }),
+      )
+    } catch (error: unknown | Error) {
+      if (error instanceof Error) {
+        throw new Error(`Erro ao criar relação de livro: ${error.message}`)
+      } else {
+        throw new Error('Erro desconhecido ao criar relação de livro')
+      }
+    }
+  }
+
   deleteRelationByBookId(bookId: number) {
     return this.bookCollection.deleteRelationByBookId(bookId)
   }

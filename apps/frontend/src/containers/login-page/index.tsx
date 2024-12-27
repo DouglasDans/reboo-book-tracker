@@ -7,6 +7,7 @@ import Icon from '@/components/icon'
 import Button from '@/components/buttons/button'
 import { makeLogin } from '@/actions/user.action'
 import { useState } from 'react'
+import Input from '@/components/forms/input'
 
 export default function LoginPage() {
   const [wrongPassword, setWrongPassword] = useState<boolean>(false)
@@ -41,12 +42,12 @@ export default function LoginPage() {
 
           <div className={styles.inputWrapper}>
             <div>
-              <input required name='email' type="email" placeholder='Email' />
-              <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
+              <Input required name='email' type="email" placeholder='Email' />
+              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
 
               {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>Senha Incorreta</small>}
             </div>
-            <Button fullWidth>Realizar Login</Button>
+            <Button type='submit' fullWidth>Realizar Login</Button>
           </div>
 
           {/* <h6>Ou</h6>

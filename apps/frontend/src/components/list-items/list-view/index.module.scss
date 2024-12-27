@@ -1,0 +1,13 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .authorSpan{
+    width: max-content;
+    color: color-variables.$text-secondary-color;
+  }
+}

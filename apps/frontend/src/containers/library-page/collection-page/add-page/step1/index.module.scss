@@ -1,0 +1,13 @@
+@use 'styles/global-sizes';
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+}
+
+.deleteContainer{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size;
+} 

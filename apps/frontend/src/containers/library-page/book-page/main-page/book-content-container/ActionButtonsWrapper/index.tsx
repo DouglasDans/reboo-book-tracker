@@ -4,8 +4,8 @@ import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import Link from 'next/link'
 import DeleteBookButtonContainer from './DeleteBookButtonContainer'
-import BookStatusSwitcher from '@/components/dropdown-menu/menus/bookStatusSwitcher'
-import DropdownCardMenu from '@/components/dropdown-menu'
+import BookStatusSwitcher from '@/components/toggle-dropdown-menu/dropdown-menus/bookStatusSwitcher'
+import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
 
 type Props = {
   book: Book
@@ -21,11 +21,11 @@ export default function ActionButtonsWrapper({ book }: Props) {
           <Button variant='secondary' startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
         </Link>
 
-        <DropdownCardMenu content={<BookStatusSwitcher book={book} />}>
+        <ToggleDropdownMenu content={<BookStatusSwitcher book={book} />}>
           <Button variant='secondary' endDecorator={<Icon name='expand_all' />}>
             Status de Leitura
           </Button>
-        </DropdownCardMenu>
+        </ToggleDropdownMenu>
 
         <Link href={`./${book.id}/edit`} className={styles.linkAction}>
           <Button variant='secondary' startDecorator={<Icon name='edit' />}>

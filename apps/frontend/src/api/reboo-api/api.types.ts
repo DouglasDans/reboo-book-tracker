@@ -68,15 +68,24 @@ export interface Publisher {
   books?: Array<Book>
 }
 
+export interface CollectionRequest {
+  id?: number
+  name: string
+  backgroundColors: string
+  userId: number
+
+  books?: number[]
+}
+
 export interface Collection {
   id: number
   name: string
   backgroundColors: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: number
 
-  books?: Array<Book>
+  books?: Array<{ book: Book }>
   user?: Array<User>
 }
 

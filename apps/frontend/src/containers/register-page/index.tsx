@@ -7,6 +7,7 @@ import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
 import { makeRegister } from '@/actions/user.action';
+import Input from '@/components/forms/input';
 
 export default function RegisterPage() {
   const [wrongPassword, setWrongPassword] = useState<boolean>(false)
@@ -51,15 +52,15 @@ export default function RegisterPage() {
 
           <div className={styles.inputWrapper}>
             <div>
-              <input required name="nameUser" type="text" placeholder='Nome' />
-              <input required className={emailInUse ? styles.wrongPassword : ""} name='email' type="email" placeholder='Email' />
-              <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
-              <input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
+              <Input required name="nameUser" type="text" placeholder='Nome' />
+              <Input required className={emailInUse ? styles.wrongPassword : ""} name='email' type="email" placeholder='Email' />
+              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
+              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
 
               {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>As senhas não coincidem</small>}
               {emailInUse && <small className={wrongPassword ? styles.wrongPassword : ""}>O email já está sendo usado</small>}
             </div>
-            <Button fullWidth>Registrar</Button>
+            <Button type='submit' fullWidth>Registrar</Button>
           </div>
 
           {/* <h6>Ou</h6>

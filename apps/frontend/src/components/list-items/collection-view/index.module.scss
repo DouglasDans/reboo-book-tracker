@@ -1,0 +1,14 @@
+@use 'styles/global-sizes';
+
+.content{
+  display: grid;
+  // grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr) );
+  gap: global-sizes.$gap-items-sm-size;
+  
+  &.wrap{
+    display: flex;
+    justify-content: flex-start;
+    gap: global-sizes.$gap-items-md-size;
+  }
+}

@@ -3,16 +3,22 @@ import { CollectionRepository } from '../../core/repositories/collection.reposit
 import { CollectionFactoryService } from './collection.factory.service'
 import { Collection } from 'src/core/entities'
 import { CreateCollectionDto, UpdateCollectionDto } from 'src/core/dtos'
+import { BookCollectionService } from '../book-collection/book-collection.service'
 
 @Injectable()
 export class CollectionService {
   constructor(
     private collection: CollectionRepository,
     private collectionFactory: CollectionFactoryService,
+    private bookCollectionService: BookCollectionService,
   ) {}
 
   getAllCollections(): Promise<Collection[]> {
     return this.collection.findAll()
+  }
+
+  getAllCollectionsByUserId(userId: number): Promise<Collection[]> {
+    return this.collection.findAllByUserId(userId)
   }
 
   getCollectionById(id: number): Promise<Collection> {
@@ -27,16 +33,28 @@ export class CollectionService {
     return this.collection.create(collection)
   }
 
-  updateCollection(
+  async updateCollection(
     collectionId: number,
     updateCollectionDto: UpdateCollectionDto,
   ) {
     const collection =
       this.collectionFactory.updateNewCollection(updateCollectionDto)
+
+    await this.bookCollectionService.deleteRelationByCollectionId(collectionId)
+
+    if (updateCollectionDto.books) {
+      await this.bookCollectionService.createRelationInBatch(
+        updateCollectionDto.id,
+        updateCollectionDto.books,
+      )
+    }
+
     return this.collection.update(collectionId, collection)
   }
 
-  deleteCollection(collectionId: number) {
+  async deleteCollection(collectionId: number) {
+    await this.bookCollectionService.deleteRelationByCollectionId(collectionId)
+
     return this.collection.delete(collectionId)
   }
 }

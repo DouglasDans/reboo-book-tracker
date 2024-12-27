@@ -96,7 +96,6 @@ export class BookService {
       this.bookCategoryService.createRelation(bookId, updateBookDto.category)
     }
 
-    console.log(book)
     return this.book.update(bookId, book)
   }
 
@@ -122,6 +121,8 @@ export class BookService {
     const book = await this.getBookById(bookId.toString())
 
     await this.bookAuthorService.deleteRelationByBookId(bookId)
+
+    await this.bookCollectionService.deleteRelationByBookId(bookId)
 
     if (book.categories) {
       await this.bookCategoryService.deleteRelationByBookId(bookId)
