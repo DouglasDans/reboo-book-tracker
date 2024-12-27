@@ -1,4 +1,4 @@
-import { createCollection, updateCollection } from '@/actions/collection.action'
+import { updateCollection } from '@/actions/collection.action'
 import Icon from '@/components/icon'
 import TabbedMenuLayout from '@/layout/tabbed-menu-layout'
 import { FormCollection } from '@/types/forms.types'

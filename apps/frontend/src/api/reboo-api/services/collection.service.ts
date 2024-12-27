@@ -1,6 +1,5 @@
 "use server"
 
-import { FormCollection } from "@/types/forms.types"
 import api from "../api.config"
 import { Collection, CollectionRequest } from "../api.types"
 
