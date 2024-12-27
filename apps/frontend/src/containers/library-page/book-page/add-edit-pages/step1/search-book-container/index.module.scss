@@ -1,0 +1,18 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+  
+  .formInput{
+    display: flex;
+    gap: global-sizes.$gap-items-md-size;
+  }
+
+  & .titleSearchISBN {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

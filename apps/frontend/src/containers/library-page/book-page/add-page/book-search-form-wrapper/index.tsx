@@ -1,6 +1,6 @@
 import BookCoverContainer from './book-cover-container'
 import styles from './index.module.scss'
-import SearchBookContainer from './search-book-container'
+import SearchBookContainer from '../../add-edit-pages/step1/search-book-container'
 
 export default function BookSearchAndCoverWrapper() {
   return (
