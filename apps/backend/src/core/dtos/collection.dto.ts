@@ -21,7 +21,6 @@ export class CreateCollectionDto {
 
   @IsOptional()
   @IsArray()
-  @ArrayNotEmpty()
   @ArrayUnique()
   @Type(() => Number)
   books?: number[]
