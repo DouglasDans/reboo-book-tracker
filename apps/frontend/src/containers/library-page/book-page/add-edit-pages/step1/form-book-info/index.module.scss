@@ -1,19 +1,13 @@
 @use 'styles/global-sizes';
 
-.container {
+.container{
   display: flex;
   flex-direction: column;
   gap: global-sizes.$gap-items-md-size;
   
-  .formInput{
-    display: flex;
-    align-items: flex-end;
+  .inputWrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: global-sizes.$gap-items-md-size;
-  }
-
-  & .titleSearchISBN {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
   }
 }
