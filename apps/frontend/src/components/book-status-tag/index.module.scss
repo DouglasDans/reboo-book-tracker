@@ -12,6 +12,17 @@
 
   @extend %font-family-poppins;
 
+  &.selectable{
+    &:hover{
+      cursor: pointer;
+      background-color: color-variables.$tag-status-color-hover;
+    }
+  }
+
+  &.active{
+    background-color: color-variables.$tag-status-color-active;
+  }
+
 
   &.BUY {
     color: color-variables.$tag-status-comprar;
