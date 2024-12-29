@@ -22,7 +22,7 @@ export default function BookCoverColorForm() {
   }
 
   useEffect(() => {
-    if (bookData.coverImage === '') {
+    if (bookData.highlightColor === '') {
       updateHighlightColor()
     }
   }, [bookData.coverImage]);
