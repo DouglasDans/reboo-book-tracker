@@ -6,6 +6,8 @@
   grid-template-columns: 300px 1fr;
   gap: global-sizes.$gap-items-md-size;
 
+  min-height: 100vh;
+
   & .contentContainer{
     display: flex;
     flex-direction: column;
