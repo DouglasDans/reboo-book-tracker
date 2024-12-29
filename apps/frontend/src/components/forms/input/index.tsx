@@ -12,6 +12,7 @@ type Props = {
   value?: string | number
   className?: string
   required?: boolean
+
 }
 
 export default function Input({ title, subtitle, placeholder, name, id, type = 'text', onChange, value, className, required }: Props) {

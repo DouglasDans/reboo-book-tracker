@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import Step1BookPage from './step1/index';
 import Step2BookPage from './step2';
+import Step3BookPage from './step3';
 
 export default function BookAddPage() {
   const searchParams = useSearchParams()
@@ -14,7 +15,7 @@ export default function BookAddPage() {
     case "2":
       return <Step2BookPage />
     case "3":
-      return "aaaa2a"
+      return <Step3BookPage />
     case "4":
       return "aaa1aa"
     default:
