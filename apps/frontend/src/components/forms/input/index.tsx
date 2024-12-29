@@ -19,7 +19,7 @@ export default function Input({ title, subtitle, placeholder, name, id, type = '
   return (
     <div className={`${styles.container} ${className || ''}`}>
       <div className={styles.titleWrapper}>
-        <label>{title}</label>
+        <label>{title}{required && "*"}</label>
         <small>{subtitle}</small>
       </div>
       <input
