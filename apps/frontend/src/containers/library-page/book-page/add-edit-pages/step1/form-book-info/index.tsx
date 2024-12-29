@@ -5,6 +5,7 @@ import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormBook } from '@/types/forms.types'
 import { createHandleChange } from '@/utils/form.utils'
 import styles from './index.module.scss'
+import TextArea from '@/components/forms/textarea'
 
 export default function FormBookInfo() {
   const [bookData, setBookData] = MenuFormData.useMenuFormData<FormBook>()
@@ -14,7 +15,7 @@ export default function FormBookInfo() {
     <div className={styles.container}>
       <Input
         title='Título'
-        placeholder='título do livro'
+        placeholder='Ex: O Senhor dos Anéis'
         name='title'
         value={bookData.title}
         onChange={handleChange}
@@ -22,7 +23,8 @@ export default function FormBookInfo() {
 
       <Input
         title='Autor'
-        placeholder='título do livro'
+        subtitle='Insira uma vírgula depois de cada autor'
+        placeholder='Ex.: J.R.R. Tolkien'
         name='authors'
         value={bookData.authors}
         onChange={handleChange}
@@ -31,7 +33,6 @@ export default function FormBookInfo() {
       <div className={styles.inputWrapper}>
         <Input
           title='Data de Publicação'
-          placeholder='título do livro'
           name='publicationDate'
           type='date'
           value={bookData.publicationDate}
@@ -40,7 +41,7 @@ export default function FormBookInfo() {
 
         <Input
           title='Editora'
-          placeholder='título do livro'
+          placeholder='Ex.: HarperCollins'
           name='publisher'
           value={bookData.publisher}
           onChange={handleChange}
@@ -48,7 +49,7 @@ export default function FormBookInfo() {
 
         <Input
           title='Total de Páginas'
-          placeholder='0'
+          placeholder='Ex.: 123'
           name='totalPages'
           type='number'
           value={bookData.totalPages}
@@ -57,14 +58,37 @@ export default function FormBookInfo() {
 
         <Input
           title='ISBN'
-          placeholder='o'
+          placeholder='Ex.: 978-3-16-148410-0'
           name='isbn'
           value={bookData.isbn}
           onChange={handleChange}
         />
 
+        <Input
+          title='Categoria'
+          subtitle='Insira uma vírgula depois de cada categoria'
+          placeholder='Ex.: Fantasia'
+          name='categories'
+          value={bookData.categories}
+          onChange={handleChange}
+        />
 
+        <Input
+          title='Idioma'
+          placeholder='Ex.: pt-BR'
+          name='language'
+          value={bookData.language}
+          onChange={handleChange}
+        />
       </div>
+
+      <TextArea
+        title='Descrição'
+        placeholder='Uma breve descrição do livro...'
+        name='description'
+        value={bookData.description}
+        onChange={handleChange}
+      />
 
     </div>
   )
