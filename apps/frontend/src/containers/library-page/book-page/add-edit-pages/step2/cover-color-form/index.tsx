@@ -7,12 +7,23 @@ import BookCover from './book-cover'
 import Input from '@/components/forms/input'
 import styles from './index.module.scss'
 import Button from '@/components/buttons/button'
-import { Fragment } from 'react'
-import { createHandleChange } from '@/utils/form.utils'
+import { Fragment, useEffect } from 'react'
+import { createHandleChange, getHighlightColorFromCoverImage, isValidImageUrl } from '@/utils/form.utils'
 
 export default function BookCoverColorForm() {
   const [bookData, setBookData] = MenuFormData.useMenuFormData<FormBook>()
   const handleChange = createHandleChange(setBookData)
+
+  async function updateHighlightColor() {
+    // Corrigir problema de resetar a cor quando troca de página
+    if (bookData.coverImage === '' && await isValidImageUrl(bookData.coverImage)) {
+      setBookData({ highlightColor: await getHighlightColorFromCoverImage(bookData.coverImage) })
+    }
+  }
+
+  useEffect(() => {
+    updateHighlightColor()
+  }, [bookData.coverImage]);
 
   return (
     <Fragment>
