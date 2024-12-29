@@ -38,7 +38,7 @@ export default function TabMenuContainer({ title, tabs, haveSubmit = false }: Pr
       {haveSubmit &&
         <div>
           <Button type='submit' fullWidth>
-            Salvar Coleção
+            Salvar
           </Button>
         </div>
       }
