@@ -21,7 +21,7 @@ export default function InputColorSelector<T>({ title = "Cor de Destaque", name,
       <div className={styles.inputContainer}>
         <div className={styles.input} style={{ backgroundColor: value }}></div>
         <ToggleDropdownMenu content={<ColorPickerMenu name={name} setState={setState} value={value} />}>
-          <Button notRounded variant='secondary' startDecorator={<Icon name='palette' />}>
+          <Button notRounded variant='secondary' startDecorator={<Icon name='brush' />}>
             Selecionar
           </Button>
         </ToggleDropdownMenu>
