@@ -8,7 +8,7 @@ import Icon from '@/components/icon'
 import ToggleDropdownMenu from '@/components/toggle-dropdown-menu'
 import BookColorPickerMenu from '@/components/toggle-dropdown-menu/dropdown-menus/BookColorPickerMenu'
 import BookUploadMenu from '@/components/toggle-dropdown-menu/dropdown-menus/BookUploadMenu'
-import BookCover from './book-cover'
+import BookCover from '../../../add-edit-pages/step2/cover-color-form/book-cover'
 import { URLBookData } from '../../../index.types'
 
 export default function BookCoverContainer() {

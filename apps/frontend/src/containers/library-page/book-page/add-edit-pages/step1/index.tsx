@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import SearchBookContainer from "./search-book-container"
-import FormBookInfo from "./form-book-info"
+import FormBookInfo from "./book-info-form"
 
 export default function Step1BookPage() {
   return (
