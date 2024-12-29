@@ -19,6 +19,7 @@ export default function FormBookInfo() {
         name='title'
         value={bookData.title}
         onChange={handleChange}
+        required
       />
 
       <Input
@@ -28,6 +29,7 @@ export default function FormBookInfo() {
         name='authors'
         value={bookData.authors}
         onChange={handleChange}
+        required
       />
 
       <div className={styles.inputWrapper}>
@@ -54,6 +56,7 @@ export default function FormBookInfo() {
           type='number'
           value={bookData.totalPages}
           onChange={handleChange}
+          required
         />
 
         <Input
