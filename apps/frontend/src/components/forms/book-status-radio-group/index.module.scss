@@ -15,5 +15,9 @@
 .bookStatusContainer{
   display: flex;
   flex-direction: row;
-  gap: global-sizes.$gap-items-sm-size  
+  gap: global-sizes.$gap-items-sm-size  ;
+
+  .bookStatusItem{
+    display: flex;
+  }
 }
