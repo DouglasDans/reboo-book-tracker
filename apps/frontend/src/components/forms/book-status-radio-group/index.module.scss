@@ -1,0 +1,19 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size  
+}
+
+.titleWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.bookStatusContainer{
+  display: flex;
+  flex-direction: row;
+  gap: global-sizes.$gap-items-sm-size  
+}
