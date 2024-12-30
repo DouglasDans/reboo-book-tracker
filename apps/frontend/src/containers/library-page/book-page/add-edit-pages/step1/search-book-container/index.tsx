@@ -6,20 +6,18 @@ import Button from '@/components/buttons/button'
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormBook } from '@/types/forms.types'
 import { useEffect, useState } from 'react'
-import { getBookByISBN } from '@/api/GoogleBooksAPI/api.services'
+import { getBookDataFromAPI } from '@/actions/book-search.action'
 
 export default function SearchBookContainer() {
-  const bookData = MenuFormData.useMenuFormData<FormBook>()[0]
+  const [bookData, setBookData] = MenuFormData.useMenuFormData<FormBook>()
   const [isbnState, setIsbnState] = useState('')
 
   async function getApiData() {
-    const bookByISBN = await getBookByISBN(isbnState)
-    console.log(bookByISBN);
+    const bookByISBN = await getBookDataFromAPI(isbnState)
+    if (bookByISBN) {
+      setBookData(bookByISBN)
+    }
   }
-
-  useEffect(() => {
-    console.log(bookData);
-  }, [bookData]);
 
   return (
     <div className={styles.container}>

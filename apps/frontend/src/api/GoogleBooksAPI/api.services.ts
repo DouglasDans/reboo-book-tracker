@@ -1,3 +1,5 @@
+"use server"
+
 import api from "./api.config"
 import { GoogleBookResponse, ItemResponse, SearchBooksResponse } from "./api.types"
 
