@@ -1,23 +1,23 @@
 import { Book } from "@/api/reboo-api/api.types"
 
 export interface FormBook {
-  id?: number
+  id?: string
   title: string
   authors: string
   publicationDate?: string
   publisher?: string
-  totalPages: number
+  totalPages: string
   isbn?: string
   categories?: string
   language: string
   description: string
 
   status: "BUY" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "GIVEN_UP"
-  pagesRead: number
+  pagesRead: string
 
   coverImage: string
   highlightColor: string
-  userId: number
+  userId: string
 }
 
 export interface FormCollection {

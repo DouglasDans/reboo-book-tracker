@@ -18,17 +18,17 @@ export default function Layout({ children, params }: Props) {
     authors: "",
     publicationDate: "",
     publisher: "",
-    totalPages: 0,
+    totalPages: "0",
     isbn: "",
     categories: "",
     language: "",
     description: "",
     status: "NOT_STARTED",
-    pagesRead: 0,
+    pagesRead: "0",
 
     coverImage: "",
     highlightColor: "",
-    userId: params.userId
+    userId: params.userId.toString()
   }
 
   const tabs = [
