@@ -5,11 +5,11 @@ import Input from '@/components/forms/input'
 import Button from '@/components/buttons/button'
 import { MenuFormData } from '@/context/tabbed-menu-layout/MenuFormDataProvider'
 import { FormBook } from '@/types/forms.types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { getBookDataFromAPI } from '@/actions/book-search.action'
 
 export default function SearchBookContainer() {
-  const [bookData, setBookData] = MenuFormData.useMenuFormData<FormBook>()
+  const setBookData = MenuFormData.useMenuFormData<FormBook>()[1]
   const [isbnState, setIsbnState] = useState('')
 
   async function getApiData() {
