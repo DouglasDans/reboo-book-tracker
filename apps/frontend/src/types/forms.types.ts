@@ -1,7 +1,7 @@
 import { Book } from "@/api/reboo-api/api.types"
 
 export interface FormBook {
-  id?: string
+  id?: number
   title: string
   authors: string
   publicationDate?: string

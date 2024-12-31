@@ -14,14 +14,15 @@ type Props<Type> = {
     icon: ReactNode
     link: string
   }>
+  requiredFields: Array<keyof Type>
   blankFormObject: Type
   submitFunction?: ((arg: Type) => void) | undefined
 }
 
-export default function TabbedMenuLayout<Type>({ children, title, tabs, blankFormObject, submitFunction }: Props<Type>) {
+export default function TabbedMenuLayout<Type>({ children, title, tabs, blankFormObject, requiredFields, submitFunction }: Props<Type>) {
   return (
     <MenuFormData.Provider initialState={blankFormObject}>
-      <MenuDataForm submitFunction={submitFunction}>
+      <MenuDataForm submitFunction={submitFunction} requiredFields={requiredFields}>
         <div className={styles.container}>
           <TabMenuContainer tabs={tabs} title={title} haveSubmit={submitFunction ? true : false} />
           <div className={styles.contentContainer}>

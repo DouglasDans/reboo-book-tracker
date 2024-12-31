@@ -36,6 +36,7 @@ export default function Step1CollectionData({ deleteButton = false }: Props) {
           name='name'
           value={collectionState.name}
           onChange={handleChange}
+          required
         />
         <InputColorSelector
           value={collectionState.backgroundColors}

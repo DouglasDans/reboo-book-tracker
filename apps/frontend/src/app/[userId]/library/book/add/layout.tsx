@@ -59,6 +59,7 @@ export default function Layout({ children, params }: Props) {
       title='Adicionar Livro'
       tabs={tabs}
       blankFormObject={blankFormObject}
+      requiredFields={['title', 'authors', 'totalPages']}
       submitFunction={createBook}
     >
       {children}
