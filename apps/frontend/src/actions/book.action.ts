@@ -53,60 +53,54 @@ export async function createBook(bookData: FormBook) {
   }
 }
 
-export default async function updateBook(formData: FormData) {
+export default async function updateBook(bookData: FormBook) {
   "use server"
 
-  const bookData: BookDataRequest = {
-    userId: Number.parseInt(formData.get("bookUser") as string),
-    id: formData.get("bookId") as string,
-    title: formData.get("bookName") as string,
-    totalPages: Number.parseInt(formData.get("bookTotalPages") as string),
-    author: (formData.get("bookAuthors") as string)
-      .replaceAll(/\s*,\s*/g, ",")
-      .split(",") as Array<string>,
-
-    pagesRead: Number.parseInt(formData.get("bookReadPages") as string),
-    status: formData.get("bookStatus") as string,
-
-    publisher: formData.get("bookPublisher")
-      ? (formData.get("bookPublisher") as string)
-      : null,
-    highlightColor: formData.get("bookHighlightColor")
-      ? (formData.get("bookHighlightColor") as string)
-      : null,
-    coverImage: formData.get("bookCoverImage")
-      ? (formData.get("bookCoverImage") as string)
-      : null,
-    language: formData.get("bookLanguage")
-      ? (formData.get("bookLanguage") as string)
-      : null,
-    description: formData.get("bookDescription")
-      ? (formData.get("bookDescription") as string)
-      : null,
-    publicationDate: formData.get("bookPublicationDate")
-      ? new Date(formData.get("bookPublicationDate") as string).toISOString()
-      : null,
-
-    isbn_10: formData.get("bookISBN")
-      ? (formData.get("bookISBN") as string).replace(/\s+/g, "").split(",")[0] ||
-        null
-      : null,
-
-    isbn_13: formData.get("bookISBN")
-      ? (formData.get("bookISBN") as string).replace(/\s+/g, "").split(",")[1] ||
-        null
-      : null,
-
-    category: formData.get("bookCategories")
-      ? ((formData.get("bookCategories") as string)
-          .replaceAll(/\s*,\s*/g, ",")
-          .split(",") as Array<string>)
-      : null,
+  const cleanAndSplit = (input: string, delimiter = ",") => {
+    return input.replaceAll(/\s*,\s*/g, delimiter).split(delimiter)
   }
 
-  if (bookData.id) {
-    const book = await bookApiService.updateBook(parseInt(bookData.id), bookData)
-    redirect("../../book/" + book.id)
+  const extractIsbn = (isbn: string, index: number) => {
+    return isbn.replace(/\s+/g, "").split(",")[index] || null
+  }
+
+  const bookRequest: BookDataRequest = {
+    title: bookData.title,
+    author: cleanAndSplit(bookData.authors),
+    publicationDate: bookData.publicationDate
+      ? new Date(bookData.publicationDate).toISOString()
+      : null,
+    publisher: bookData.publisher || null,
+    totalPages: parseInt(bookData.totalPages),
+    isbn_10: (bookData.isbn && extractIsbn(bookData.isbn, 0)) || null,
+    isbn_13: (bookData.isbn && extractIsbn(bookData.isbn, 1)) || null,
+    category: (bookData.categories && cleanAndSplit(bookData.categories)) || null,
+    language: bookData.language,
+    description: bookData.description,
+    status: bookData.status,
+    pagesRead: parseInt(bookData.pagesRead),
+    coverImage: bookData.coverImage,
+    highlightColor: bookData.highlightColor,
+    userId: parseInt(bookData.userId),
+  }
+
+  let bookId: number | null = null
+
+  try {
+    const book = await bookApiService.updateBook(
+      parseInt(bookData.id?.toString() as string),
+      bookRequest,
+    )
+    bookId = book.id
+  } catch (error) {
+    console.error("Error creating book:", error)
+    throw new Error(
+      "Ocorreu um erro para criar o livro, tente novamente mais tarde!",
+    )
+  }
+
+  if (bookId) {
+    redirect(`../../../library/book/${bookId}`)
   }
 }
 

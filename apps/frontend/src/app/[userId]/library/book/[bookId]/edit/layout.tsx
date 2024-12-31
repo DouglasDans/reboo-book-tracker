@@ -1,4 +1,4 @@
-import { createBook } from '@/actions/book.action'
+import updateBook from '@/actions/book.action'
 import { bookApiService } from '@/api/reboo-api'
 import Icon from '@/components/icon'
 import TabbedMenuLayout from '@/layout/tabbed-menu-layout'
@@ -67,7 +67,7 @@ export default async function Layout({ children, params }: Props) {
       tabs={tabs}
       blankFormObject={initialDataForm}
       requiredFields={['title', 'authors', 'totalPages']}
-      submitFunction={createBook}
+      submitFunction={updateBook}
     >
       {children}
     </TabbedMenuLayout>
