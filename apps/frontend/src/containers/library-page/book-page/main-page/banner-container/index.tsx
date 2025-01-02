@@ -44,9 +44,9 @@ export default function BookBannerContainer({ book }: Props) {
       {coverImage && <img ref={imgRef} src={coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />}
 
       <div className={styles.bannerBackground} style={{ backgroundColor: book.highlightColor }}>
-        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+        {/* <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
           <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
-        </Link>
+        </Link> */}
       </div>
 
       <div className={styles.bannerInfo} >
