@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { Book } from '@/api/reboo-api/api.types'
 import BookStatusTag from '@/components/book-status-tag'
 import { isValidImageUrl } from '@/utils/form.utils'
-import { convertStringDateToDate } from '@/components/banners/book-banner/index.utils'
+import { convertStringDateToDate } from '@/utils/book.utils'
 
 type Props = {
   book: Book
