@@ -35,7 +35,7 @@ export default function ToggleDropdownMenu({ children, content }: Props) {
 
   return (
     <div ref={cardRef} className={styles.cardContainer}>
-      <div onClick={() => setIsOpen(!isOpen)} ref={buttonRef}>
+      <div onClick={() => setIsOpen(!isOpen)} ref={buttonRef} className={styles.cardOpener}>
         {children}
       </div>
       {isOpen && <div className={styles.card} style={{ marginTop: dropdownMargin }}>

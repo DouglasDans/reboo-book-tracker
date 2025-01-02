@@ -14,11 +14,11 @@ export default function BookContentWrapper({ book }: Props) {
     <BookDataProvider value={book}>
       <div className={styles.container}>
         <div className={styles.leftWrapper}>
-          <InfoContainer book={book} />
+          <ActionButtonsWrapper book={book} />
         </div>
         <div className={styles.rightWrapper}>
-          <ActionButtonsWrapper book={book} />
-          <StatsWrapper />
+          <InfoContainer book={book} />
+          {/* <StatsWrapper /> */}
         </div>
       </div>
     </BookDataProvider>

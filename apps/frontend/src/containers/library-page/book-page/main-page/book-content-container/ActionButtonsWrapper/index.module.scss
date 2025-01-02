@@ -6,17 +6,23 @@
   display: flex;
   flex-direction: column;
   gap: global-sizes.$gap-items-md-size;
-  height: auto;
+  width: 100%;
   
   & .wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: global-sizes.$gap-items-sm-size;
+    width: 100%;
 
     & .linkAction{
       text-decoration: none;
       font-style: none;
+      width: 100%;
+    }
+
+    .buttons{
+      width: 100%;
     }
   }
 }
