@@ -2,7 +2,6 @@ import { Book } from '@/api/reboo-api/api.types'
 import styles from './index.module.scss'
 import InfoContainer from './InfoContainer'
 import ActionButtonsWrapper from './ActionButtonsWrapper'
-import StatsWrapper from './StatsWrapper'
 import { BookDataProvider } from '@/context/book/BookDataProvider'
 
 type Props = {
