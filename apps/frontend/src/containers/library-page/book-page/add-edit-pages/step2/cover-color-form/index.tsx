@@ -34,13 +34,14 @@ export default function BookCoverColorForm() {
         <div className={styles.imageInputWrapper}>
           <Input
             title='Adicionar capa do livro'
+            subtitle='Insira o URL da imagem da capa do livro'
             placeholder='URL da capa...'
             name='coverImage'
             value={bookData.coverImage}
             onChange={handleChange}
           />
-          <span>Ou</span>
-          <Button fullWidth notRounded variant='secondary'>Carregar Imagem</Button>
+          {/* <span>Ou</span>
+          <Button fullWidth notRounded variant='secondary'>Carregar Imagem</Button> */}
         </div>
       </div>
       <div className={styles.imageInputWrapper}>
