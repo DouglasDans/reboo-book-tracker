@@ -47,11 +47,6 @@ export default function Layout({ children, params }: Props) {
       icon: <Icon name='play_lesson' />,
       link: "?step=3"
     },
-    {
-      title: "Pré-vizualizção",
-      icon: <Icon name='preview' />,
-      link: "?step=4"
-    },
   ]
 
   return (
