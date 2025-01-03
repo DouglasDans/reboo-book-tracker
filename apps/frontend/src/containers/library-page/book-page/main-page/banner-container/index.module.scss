@@ -1,5 +1,6 @@
 @use 'styles/global-sizes';
 @use 'styles/color-variables';
+@use 'styles/mixins';
 
 .container{
   .coverImage{
@@ -7,6 +8,10 @@
     margin: global-sizes.$gap-sections-size;
     border-radius: global-sizes.$book-cover-radius;
     position: absolute;
+
+    @include mixins.media-query(md){
+      height: 135px;
+    }
   }
 
   .bannerBackground{
@@ -34,9 +39,18 @@
     grid-template-columns: 75% 1fr;
     align-items: center;
 
+    @include mixins.media-query(xl){
+      display: grid;
+      grid-template-columns: 100% 0;
+    }
+
     .titleContainer{
       display: flex;
       flex-direction: column;
+
+      @include mixins.media-query(md){
+        margin-left: 0 !important;
+      }
 
       & h1 {
         white-space: nowrap;
@@ -44,7 +58,7 @@
         text-overflow: ellipsis;  
       }
     }
-  
+
     .infoWrapper{
       display: flex;
       flex-direction: column;
@@ -53,11 +67,12 @@
       gap: 5px;
   
       color: color-variables.$text-tertiary-color;
+      text-wrap: no-wrap;
+
+      @include mixins.media-query(xl){
+        display: none;
+      }
     }
   }
 }
-
-
-
-
 

@@ -10,6 +10,7 @@ import { Book } from '@/api/reboo-api/api.types'
 import BookStatusTag from '@/components/book-status-tag'
 import { isValidImageUrl } from '@/utils/form.utils'
 import { convertStringDateToDate } from '@/utils/book.utils'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 type Props = {
   book: Book
@@ -22,12 +23,14 @@ export default function BookBannerContainer({ book }: Props) {
   const imgRef = useRef<HTMLImageElement>(null);
   const [width, setWidth] = useState<number | null>(null);
   const [coverImage, setCoverImage] = useState<string | null>(null)
+  const isMobile = useMediaQuery('md')
+
 
   useEffect(() => {
     if (imgRef.current) {
       setWidth(imgRef.current.offsetWidth);
     }
-  }, [coverImage]);
+  }, [coverImage, isMobile]);
 
   useEffect(() => {
     setCoverImage(null)
@@ -50,7 +53,7 @@ export default function BookBannerContainer({ book }: Props) {
       </div>
 
       <div className={styles.bannerInfo} >
-        <div className={styles.titleContainer} style={{ marginLeft: (width ? width + 15 : 0) }}>
+        <div className={styles.titleContainer} style={{ marginLeft: (width && !isMobile ? width + 15 : 0) }}>
           <h1>{book.title}</h1>
           <small className={styles.authorName}>
             {book.authors?.length && book.authors[0]?.author?.name ? `Por ${book.authors[0].author.name}` : ""}
