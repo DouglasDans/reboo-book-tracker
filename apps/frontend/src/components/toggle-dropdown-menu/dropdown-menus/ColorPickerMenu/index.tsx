@@ -24,6 +24,7 @@ export default function ColorPickerMenu<T>({ value, setState, name }: Props<T>) 
       <HexColorPicker color={color} onChange={setColor} />
 
       <Input
+        title=""
         className={styles.input}
         value={color}
         onChange={(e) => { setColor(e.target.value) }}
