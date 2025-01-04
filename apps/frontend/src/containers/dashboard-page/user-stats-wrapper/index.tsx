@@ -15,7 +15,7 @@ export default async function UserStatsContainer({ params }: Props) {
   return (
     <section className={styles.container}>
       <BookCard book={mostRecentInProgressBook} />
-      <StatsCardsWrapper />
+      {/* <StatsCardsWrapper /> */}
     </section>
   )
 }
