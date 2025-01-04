@@ -1,5 +1,6 @@
 @use 'styles/color-variables';
 @use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .container{
   display: flex;
@@ -16,6 +17,10 @@
   display: flex;
   flex-direction: row;
   gap: global-sizes.$gap-items-sm-size  ;
+
+  @include mixins.media-query(sm){
+    flex-direction: column;
+  }
 
   .bookStatusItem{
     display: flex;

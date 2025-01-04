@@ -1,6 +1,7 @@
 @use 'styles/color-variables';
 @use 'styles/global-sizes';
 @use 'styles/fonts';
+@use 'styles/mixins';
 
 .tag {
   padding: global-sizes.$tag-status-padding;
@@ -11,6 +12,11 @@
   text-wrap: nowrap;
 
   @extend %font-family-poppins;
+
+  @include mixins.media-query(sm){
+    width: 100%;
+    text-align: center;
+  }
 
   &.selectable{
     &:hover{
