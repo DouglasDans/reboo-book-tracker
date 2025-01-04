@@ -22,7 +22,7 @@ export default function Input({ title, subtitle, placeholder, name, id, type = '
       <div className={styles.titleWrapper}>
         <label>{title}{required && "*"}</label>
         <small>{subtitle}</small>
-        <small style={{ color: 'red' }}>{errorSubtitle}</small>
+        {error && <small style={{ color: 'red' }}>{errorSubtitle}</small>}
       </div>
       <input
         className={`${styles.input} ${error && styles.error}`}
