@@ -42,7 +42,7 @@ export default function LoginPage() {
 
           <div className={styles.inputWrapper}>
             <div>
-              <Input required name='email' type="email" placeholder='Email' />
+              <Input title='' required name='email' type="email" placeholder='Email' />
               <Input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
 
               {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>Senha Incorreta</small>}

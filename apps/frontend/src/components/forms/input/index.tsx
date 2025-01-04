@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.scss'
 
 type Props = {
-  title?: string
+  title: string
   subtitle?: string
   placeholder?: string
   name: string
