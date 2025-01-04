@@ -41,11 +41,9 @@ export default function LoginPage() {
           <h3>Fazer Login no Reboo</h3>
 
           <div className={styles.inputWrapper}>
-            <div>
-              <Input title='' required name='email' type="email" placeholder='Email' />
-              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
-
-              {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>Senha Incorreta</small>}
+            <div className={styles.inputs}>
+              <Input title='Email' required name='email' type="email" placeholder='Email' />
+              <Input title='Senha' required error={wrongPassword} errorSubtitle={'Senha Incorreta'} name="password" type="password" placeholder='Senha' />
             </div>
             <Button type='submit' fullWidth>Realizar Login</Button>
           </div>
