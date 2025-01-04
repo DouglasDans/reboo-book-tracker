@@ -12,18 +12,20 @@ type Props = {
   value?: string | number
   className?: string
   required?: boolean
-
+  error?: boolean
+  errorSubtitle?: string
 }
 
-export default function Input({ title, subtitle, placeholder, name, id, type = 'text', onChange, value, className, required }: Props) {
+export default function Input({ title, subtitle, placeholder, name, id, type = 'text', onChange, value, className, required, error, errorSubtitle }: Props) {
   return (
     <div className={`${styles.container} ${className || ''}`}>
       <div className={styles.titleWrapper}>
         <label>{title}{required && "*"}</label>
         <small>{subtitle}</small>
+        <small style={{ color: 'red' }}>{errorSubtitle}</small>
       </div>
       <input
-        className={styles.input}
+        className={`${styles.input} ${error && styles.error}`}
         type={type}
         placeholder={placeholder}
         required={required}

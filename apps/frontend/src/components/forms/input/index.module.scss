@@ -40,4 +40,8 @@
   &:disabled {
     border: 2px solid color-variables.$background-level1-color;
   }
+
+  &.error{
+    border-color: red;
+  }
 }
