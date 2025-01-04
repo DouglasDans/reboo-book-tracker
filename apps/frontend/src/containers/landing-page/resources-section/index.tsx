@@ -15,13 +15,13 @@ export default function LandingResourcesContainer() {
 
         <ResourceItem data={{
           icon: 'timer_play',
-          title: "Acompanhe suas leituras",
+          title: "Acompanhe suas leituras (Em breve)",
           text: "Leia, crie sessões de leitura, defina metas diárias, mensais e anuais, e veja quantas páginas você lê em média por dia."
         }} />
 
         <ResourceItem data={{
           icon: 'chart_data',
-          title: "Visualize seu progresso",
+          title: "Visualize seu progresso (Em breve)",
           text: "Gráficos interativos mostram seu desempenho, seus hábitos de leitura e muito mais."
         }} />
 
