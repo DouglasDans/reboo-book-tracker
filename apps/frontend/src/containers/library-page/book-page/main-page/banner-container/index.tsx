@@ -2,10 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './index.module.scss'
-import Button from '@/components/buttons/button'
-import Icon from '@/components/icon'
 import { formatDate } from '@/utils/library.utils'
-import Link from 'next/link'
 import { Book } from '@/api/reboo-api/api.types'
 import BookStatusTag from '@/components/book-status-tag'
 import { isValidImageUrl } from '@/utils/form.utils'
