@@ -41,12 +41,12 @@ export default function SideMenu() {
           icon={<Icon name="book" />}
           title={"Minha Estante"}
         />
-        <NavLink
+        {/* <NavLink
           isActive={isActiveUrl(`/${user.id}/stats`)}
           href={`/${user.id}/stats`}
           icon={<Icon name="bar_chart" />}
           title={"Estatísticas"}
-        />
+        /> */}
       </div>
     </div>
   )

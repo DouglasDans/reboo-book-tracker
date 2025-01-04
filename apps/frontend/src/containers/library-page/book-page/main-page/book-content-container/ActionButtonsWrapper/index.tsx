@@ -17,9 +17,9 @@ export default function ActionButtonsWrapper({ book }: Props) {
       <h5>Ações</h5>
 
       <div className={styles.wrapper}>
-        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`} className={styles.buttons}>
+        {/* <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`} className={styles.buttons}>
           <Button fullWidth variant='secondary' startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
-        </Link>
+        </Link> */}
 
         <ToggleDropdownMenu fullWidth content={<BookStatusSwitcher book={book} />}>
           <Button fullWidth variant='secondary' endDecorator={<Icon name='expand_all' />}>
