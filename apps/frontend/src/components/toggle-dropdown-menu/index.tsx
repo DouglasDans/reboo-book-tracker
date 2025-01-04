@@ -6,9 +6,10 @@ import styles from "./index.module.scss"
 type Props = {
   content: React.ReactNode
   children: React.ReactNode
+  fullWidth?: boolean
 }
 
-export default function ToggleDropdownMenu({ children, content }: Props) {
+export default function ToggleDropdownMenu({ children, content, fullWidth = false }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [dropdownMargin, setDropdownMargin] = useState<string>()
   const cardRef = useRef<HTMLDivElement>(null)
@@ -34,7 +35,7 @@ export default function ToggleDropdownMenu({ children, content }: Props) {
   }, [buttonRef]);
 
   return (
-    <div ref={cardRef} className={styles.cardContainer}>
+    <div ref={cardRef} className={`${styles.cardContainer} ${fullWidth && styles.fullWidth}`}>
       <div onClick={() => setIsOpen(!isOpen)} ref={buttonRef} className={styles.cardOpener}>
         {children}
       </div>

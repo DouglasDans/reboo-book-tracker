@@ -5,8 +5,12 @@
 .cardContainer{
   display: flex;
   flex-direction: row-reverse;
-
+  
   .cardOpener{
+    width: 100%;
+  }
+  
+  &.fullWidth{
     width: 100%;
   }
 }

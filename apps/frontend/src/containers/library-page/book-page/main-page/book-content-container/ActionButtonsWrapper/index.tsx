@@ -21,7 +21,7 @@ export default function ActionButtonsWrapper({ book }: Props) {
           <Button fullWidth variant='secondary' startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
         </Link>
 
-        <ToggleDropdownMenu content={<BookStatusSwitcher book={book} />}>
+        <ToggleDropdownMenu fullWidth content={<BookStatusSwitcher book={book} />}>
           <Button fullWidth variant='secondary' endDecorator={<Icon name='expand_all' />}>
             Status de Leitura
           </Button>
