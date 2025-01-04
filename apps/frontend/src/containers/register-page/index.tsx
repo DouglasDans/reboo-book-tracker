@@ -7,6 +7,7 @@ import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
 import { makeRegister } from '@/actions/user.action';
+import Input from '@/components/forms/input';
 
 export default function RegisterPage() {
   const [wrongPassword, setWrongPassword] = useState<boolean>(false)
@@ -50,16 +51,13 @@ export default function RegisterPage() {
           <h3>Registrar no Reboo</h3>
 
           <div className={styles.inputWrapper}>
-            <div>
-              <input required name="nameUser" type="text" placeholder='Nome' />
-              <input required className={emailInUse ? styles.wrongPassword : ""} name='email' type="email" placeholder='Email' />
-              <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
-              <input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
-
-              {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>As senhas não coincidem</small>}
-              {emailInUse && <small className={wrongPassword ? styles.wrongPassword : ""}>O email já está sendo usado</small>}
+            <div className={styles.inputs}>
+              <Input title='Nome' required name="nameUser" type="text" placeholder='Nome' />
+              <Input title='Email' required error={emailInUse} errorSubtitle={"O email já está sendo usado"} name='email' type="email" placeholder='Email' />
+              <Input title='Senha' required error={wrongPassword} errorSubtitle='As senhas não coincidem' name="password" type="password" placeholder='Senha' />
+              <Input title='Confirmar Senha' required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
             </div>
-            <Button fullWidth>Registrar</Button>
+            <Button type='submit' fullWidth>Registrar</Button>
           </div>
 
           {/* <h6>Ou</h6>

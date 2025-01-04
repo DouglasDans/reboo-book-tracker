@@ -1,7 +1,6 @@
 import BookCard from '@/components/cards/book-card'
 import styles from './index.module.scss'
-import StatsCardsWrapper from './stats-cards-wrapper'
-import { getFirstBookByBookStatus } from '@/services/rebooAPI/api.services'
+import { getFirstBookByBookStatus } from '@/api/reboo-api/services/book.service'
 
 type Props = {
   params: {
@@ -15,7 +14,7 @@ export default async function UserStatsContainer({ params }: Props) {
   return (
     <section className={styles.container}>
       <BookCard book={mostRecentInProgressBook} />
-      <StatsCardsWrapper />
+      {/* <StatsCardsWrapper /> */}
     </section>
   )
 }

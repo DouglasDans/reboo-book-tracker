@@ -8,8 +8,6 @@ import { PublisherUseCaseModule } from '../publisher'
 import { BookCategoryUseCaseModule } from '../book-category'
 import { BookAuthorUseCaseModule } from '../book-author'
 import { BookCollectionUseCaseModule } from '../book-collection'
-import { AuthorService, AuthorUseCaseModule } from '../author'
-import { CategoryUseCaseModule } from '../category'
 
 @Module({
   imports: [

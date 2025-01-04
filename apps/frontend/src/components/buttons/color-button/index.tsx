@@ -5,6 +5,7 @@ type Props = {
   value: string
   decorator?: ReactNode
   image?: string
+  color?: string
   bgcolor?: string
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -14,13 +15,13 @@ export default function ColorButton({
   value,
   decorator,
   image,
-  // bgcolor,
+  color,
   disabled,
   onClick
 }: Props) {
 
   return (
-    <button disabled={disabled} className={`${styles.button}`} onClick={onClick}>
+    <button disabled={disabled} className={`${styles.button}`} onClick={onClick} style={{ backgroundColor: color }}>
       <div className={styles.iconImageCover}>
         <div className={styles.icon}>{decorator}</div>
         {image ? <img src={image} alt="" /> : ""}

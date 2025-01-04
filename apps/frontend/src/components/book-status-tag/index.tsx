@@ -1,7 +1,10 @@
+import { BookStatus } from '@/api/reboo-api/api.types';
 import styles from './index.module.scss'
 
 type Props = {
-  status: "BUY" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "GIVEN_UP"
+  status: BookStatus,
+  canSelect?: boolean,
+  active?: boolean
 }
 
 const textSpan = {
@@ -22,9 +25,19 @@ const textSpan = {
   },
 }
 
-export default function BookStatusTag({ status }: Props) {
+export default function BookStatusTag({ status, canSelect = false, active = false }: Props) {
+
+  const classNames = [styles.tag, styles[status]];
+
+  if (canSelect) {
+    classNames.push(styles.selectable);
+  }
+
+  if (active) {
+    classNames.push(styles.active);
+  }
 
   return (
-    <span className={`${styles.tag} ${styles[status]}`}>{textSpan[status].title}</span>
-  )
+    <span className={classNames.join(' ')}>{textSpan[status].title}</span>
+  );
 }

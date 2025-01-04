@@ -35,7 +35,7 @@
         gap: global-sizes.$gap-sections-size;
         width: 100%;
         
-        & div {
+        & .inputs {
           display: flex;
           flex-direction: column;
           gap: global-sizes.$gap-items-sm-size;

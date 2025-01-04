@@ -1,0 +1,21 @@
+@use 'styles/global-sizes';
+@use 'styles/mixins';
+
+.container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: global-sizes.$gap-items-md-size  ;
+
+  @include mixins.media-query(sm){
+    flex-direction: column;
+  }
+  
+}
+.imageInputWrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size  ;
+}

@@ -1,0 +1,21 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.container{
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: global-sizes.$padding-menu-size;
+  gap: global-sizes.$gap-sections-size;
+
+  border: 2px solid color-variables.$background-level2-color;
+  border-radius: global-sizes.$radius-item-size;
+
+  & .itemsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-items-sm-size;
+  }
+}

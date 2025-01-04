@@ -4,7 +4,7 @@ import { deleteBook } from '@/actions/book.action'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import { BookDataContext } from '@/context/book/BookDataProvider'
-import { Book } from '@/services/rebooAPI/api.types'
+import { Book } from '@/api/reboo-api/api.types'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 
@@ -17,14 +17,14 @@ export default function DeleteBookButtonContainer() {
       const deletedBook = await deleteBook(book.id) as Book
 
       if (!deletedBook.id) {
-        alert("houve um problema para deletar o liro, tente novamente mais tarde.")
+        alert("houve um problema para deletar o livro, tente novamente mais tarde.")
       }
       router.push("../")
     }
   }
 
   return (
-    <Button onClick={removeBook} variant='secondary' startDecorator={<Icon name='delete' />}>
+    <Button fullWidth onClick={removeBook} variant='secondary' startDecorator={<Icon name='delete' />}>
       Deletar Livro
     </Button>
   )

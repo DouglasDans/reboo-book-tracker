@@ -6,9 +6,9 @@ import Icon from "@/components/icon"
 import { usePathname } from "next/navigation"
 import { useContext } from "react"
 import { UserContext } from "@/context/user/UserProvider"
-import DropdownCardMenu from "@/components/dropdown-menu"
-import UserOptionsMenu from "@/components/dropdown-menu/menus/UserOptionsMenu"
-import { User } from "@/services/rebooAPI/api.types"
+import { User } from "@/api/reboo-api/api.types"
+import ToggleDropdownMenu from "@/components/toggle-dropdown-menu"
+import UserOptionsMenu from "@/components/toggle-dropdown-menu/dropdown-menus/UserOptionsMenu"
 
 
 export default function Header() {
@@ -33,8 +33,8 @@ export default function Header() {
       <h5>{getPageTitle(pathname)}</h5>
 
       <div className={styles.shortcutsWrapper}>
-        <Link href={`/${user.id}/stats/session/add`}>
-          <Icon name="timer_play" />
+        <Link href={`/${user.id}/library/collection/add`}>
+          <Icon name="library_add" />
         </Link>
         <Link href={`/${user.id}/library/book/add`}>
           <Icon name="bookmark_add" />
@@ -42,11 +42,11 @@ export default function Header() {
         {/* <Link href={"#"}>
           <Icon name="notifications" />
         </Link> */}
-        <DropdownCardMenu content={<UserOptionsMenu user={user} />}>
+        <ToggleDropdownMenu content={<UserOptionsMenu user={user} />}>
           <Link href={"#"}>
             <Icon name="person" />
           </Link>
-        </DropdownCardMenu>
+        </ToggleDropdownMenu>
       </div>
     </div>
   )

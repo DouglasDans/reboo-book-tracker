@@ -21,6 +21,7 @@ import {
 import { AuthUseCaseModule } from './use-cases/auth'
 import { APP_GUARD } from '@nestjs/core'
 import { AuthGuard } from './use-cases/auth/auth.guard'
+import { BookCollectionUseCaseModule } from './use-cases/book-collection'
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { AuthGuard } from './use-cases/auth/auth.guard'
     AuthUseCaseModule,
     AuthorUseCaseModule,
     BookUseCaseModule,
+    BookCollectionUseCaseModule,
     CategoryUseCaseModule,
     CollectionUseCaseModule,
     PublisherUseCaseModule,

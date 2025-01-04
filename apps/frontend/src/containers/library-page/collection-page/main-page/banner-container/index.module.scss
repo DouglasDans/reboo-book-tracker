@@ -1,0 +1,57 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/mixins';
+
+.container{
+  
+  .buttonsWrapper{
+    display: flex;
+    gap: global-sizes.$gap-items-sm-size;
+  }
+}
+
+.bannerBackground{
+  height: 135px;
+  width: 100%;
+
+  background-color: color-variables.$background-level2-color;
+  padding: global-sizes.$padding-banner-size;
+  border-radius: global-sizes.$radius-banner-size global-sizes.$radius-banner-size 0 0;
+  
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.bannerInfo{
+  height: 85px;
+  width: 100%;
+  
+  background-color: color-variables.$background-level1-color;
+  padding: global-sizes.$padding-banner-size;
+  border-radius: 0 0 global-sizes.$radius-banner-size global-sizes.$radius-banner-size;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h1 {
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+
+  .infoWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+
+    color: color-variables.$text-tertiary-color;
+
+    @include mixins.media-query(md){
+      display: none;
+    }
+  }
+}

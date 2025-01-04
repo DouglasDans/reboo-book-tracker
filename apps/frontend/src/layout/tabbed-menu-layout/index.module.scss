@@ -1,0 +1,26 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/mixins';
+
+.container{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: global-sizes.$gap-items-md-size;
+  min-height: 100vh;
+
+  @include mixins.media-query(lg){
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  & .contentContainer{
+    display: flex;
+    flex-direction: column;
+  
+    padding: global-sizes.$padding-menu-size;
+    gap: global-sizes.$gap-components-size;
+  
+    border: 2px solid color-variables.$background-level2-color;
+    border-radius: global-sizes.$radius-item-size;
+  }
+}
