@@ -119,10 +119,9 @@ export interface User {
   books?: Array<Book>
 }
 
-export enum BookStatus {
-  BUY = "BUY",
-  NOT_STARTED = "NOT_STARTED",
-  IN_PROGRESS = "IN_PROGRESS",
-  COMPLETED = "COMPLETED",
-  GIVEN_UP = "GIVEN_UP",
-}
+export type BookStatus =
+  | "BUY"
+  | "NOT_STARTED"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "GIVEN_UP"

@@ -7,6 +7,11 @@
   gap: global-sizes.$gap-items-sm-size  
 }
 
+.titleWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
 .input {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
@@ -34,5 +39,9 @@
 
   &:disabled {
     border: 2px solid color-variables.$background-level1-color;
+  }
+
+  &.error{
+    border-color: red;
   }
 }

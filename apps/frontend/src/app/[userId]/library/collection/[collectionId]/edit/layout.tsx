@@ -44,6 +44,7 @@ export default async function Layout({ children, params }: Props) {
       title='Editar Coleção'
       tabs={tabs}
       blankFormObject={initialDataForm}
+      requiredFields={['name']}
       submitFunction={updateCollection}
     >
       {children}

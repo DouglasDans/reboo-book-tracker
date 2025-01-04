@@ -1,10 +1,17 @@
 @use 'styles/global-sizes';
 @use 'styles/color-variables';
+@use 'styles/mixins';
 
 .container{
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: global-sizes.$gap-items-md-size;
+  min-height: 100vh;
+
+  @include mixins.media-query(lg){
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
   & .contentContainer{
     display: flex;

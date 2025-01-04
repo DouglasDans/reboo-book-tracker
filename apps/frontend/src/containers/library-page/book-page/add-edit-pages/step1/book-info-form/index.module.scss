@@ -1,0 +1,19 @@
+@use 'styles/global-sizes';
+@use 'styles/mixins';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+  
+  .inputWrapper{
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: repeat(2, 1fr);
+    gap: global-sizes.$gap-items-md-size;
+
+    @include mixins.media-query(sm){
+      grid-template-columns: 1fr;
+    }
+  }
+}

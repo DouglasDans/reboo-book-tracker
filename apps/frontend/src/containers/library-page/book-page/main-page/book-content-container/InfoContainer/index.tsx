@@ -1,18 +1,29 @@
 import styles from './index.module.scss'
 import { Book } from '@/api/reboo-api/api.types'
-import { convertAuthorsArrayToString, convertCategoriesArrayToString, convertStringToDate } from './index.utils'
+import { convertAuthorsArrayToString, convertCategoriesArrayToString } from './index.utils'
+import { formatDate } from '@/utils/library.utils'
+import BookStatusTag from '@/components/book-status-tag'
 
 type Props = {
   book: Book
 }
 
 export default function InfoContainer({ book }: Props) {
+  const publicationDateFormatted = formatDate(book.publicationDate)
+
   return (
     <div className={styles.container}>
       <h5>Informações sobre o livro</h5>
 
       <div className={styles.wrapper}>
         <div className={styles.inlineWrapper}>
+          {book.title && (
+            <div className={styles.infoItem}>
+              <span className={styles.itemTitle}>Nome Completo</span>
+              <span className={styles.itemValue}>{book.title}</span>
+            </div>
+          )}
+
           {book.authors && book.authors.length !== 0 && (
             <div className={styles.infoItem}>
               <span className={styles.itemTitle}>Autor</span>
@@ -23,7 +34,7 @@ export default function InfoContainer({ book }: Props) {
           {book.publicationDate && (
             <div className={styles.infoItem}>
               <span className={styles.itemTitle}>Data de Publicação</span>
-              <span className={styles.itemValue}>{convertStringToDate(book.publicationDate)}</span>
+              <span className={styles.itemValue}>{publicationDateFormatted}</span>
             </div>
           )}
 
@@ -52,6 +63,13 @@ export default function InfoContainer({ book }: Props) {
             <div className={styles.infoItem}>
               <span className={styles.itemTitle}>Idioma</span>
               <span className={styles.itemValue}>{book.language}</span>
+            </div>
+          )}
+
+          {book.status && (
+            <div className={styles.infoItem}>
+              <span className={styles.itemTitle}>Status do Livro</span>
+              <span className={styles.itemValue}><BookStatusTag status={book.status} /></span>
             </div>
           )}
         </div>

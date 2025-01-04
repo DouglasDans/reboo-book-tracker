@@ -24,7 +24,7 @@ export default function DeleteBookButtonContainer() {
   }
 
   return (
-    <Button onClick={removeBook} variant='secondary' startDecorator={<Icon name='delete' />}>
+    <Button fullWidth onClick={removeBook} variant='secondary' startDecorator={<Icon name='delete' />}>
       Deletar Livro
     </Button>
   )

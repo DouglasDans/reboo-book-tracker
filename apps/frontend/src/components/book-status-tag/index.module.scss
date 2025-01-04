@@ -1,16 +1,33 @@
 @use 'styles/color-variables';
 @use 'styles/global-sizes';
 @use 'styles/fonts';
+@use 'styles/mixins';
 
 .tag {
   padding: global-sizes.$tag-status-padding;
   border: 2px solid;
   border-radius: global-sizes.$tag-status-radius;
-  background-color: color-variables.$background-body-color;
+  background-color: transparent;
   width: fit-content;
   text-wrap: nowrap;
 
   @extend %font-family-poppins;
+
+  @include mixins.media-query(sm){
+    width: 100%;
+    text-align: center;
+  }
+
+  &.selectable{
+    &:hover{
+      cursor: pointer;
+      background-color: color-variables.$tag-status-color-hover;
+    }
+  }
+
+  &.active{
+    background-color: color-variables.$tag-status-color-active;
+  }
 
 
   &.BUY {

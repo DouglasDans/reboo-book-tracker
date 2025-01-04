@@ -51,14 +51,11 @@ export default function RegisterPage() {
           <h3>Registrar no Reboo</h3>
 
           <div className={styles.inputWrapper}>
-            <div>
-              <Input required name="nameUser" type="text" placeholder='Nome' />
-              <Input required className={emailInUse ? styles.wrongPassword : ""} name='email' type="email" placeholder='Email' />
-              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
-              <Input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
-
-              {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>As senhas não coincidem</small>}
-              {emailInUse && <small className={wrongPassword ? styles.wrongPassword : ""}>O email já está sendo usado</small>}
+            <div className={styles.inputs}>
+              <Input title='Nome' required name="nameUser" type="text" placeholder='Nome' />
+              <Input title='Email' required error={emailInUse} errorSubtitle={"O email já está sendo usado"} name='email' type="email" placeholder='Email' />
+              <Input title='Senha' required error={wrongPassword} errorSubtitle='As senhas não coincidem' name="password" type="password" placeholder='Senha' />
+              <Input title='Confirmar Senha' required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
             </div>
             <Button type='submit' fullWidth>Registrar</Button>
           </div>

@@ -1,0 +1,78 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/mixins';
+
+.container{
+  .coverImage{
+    height: 260px;
+    margin: global-sizes.$gap-sections-size;
+    border-radius: global-sizes.$book-cover-radius;
+    position: absolute;
+
+    @include mixins.media-query(md){
+      height: 135px;
+    }
+  }
+
+  .bannerBackground{
+    height: 175px;
+    width: 100%;
+  
+    background-color: color-variables.$background-level2-color;
+    padding: global-sizes.$padding-banner-size;
+    border-radius: global-sizes.$radius-banner-size global-sizes.$radius-banner-size 0 0;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .bannerInfo{
+    height: 125px;
+    width: 100%;
+    
+    background-color: color-variables.$background-level1-color;
+    padding: global-sizes.$padding-banner-size;
+    border-radius: 0 0 global-sizes.$radius-banner-size global-sizes.$radius-banner-size;
+  
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    align-items: center;
+
+    @include mixins.media-query(xl){
+      display: grid;
+      grid-template-columns: 100% 0;
+    }
+
+    .titleContainer{
+      display: flex;
+      flex-direction: column;
+
+      @include mixins.media-query(md){
+        margin-left: 0 !important;
+      }
+
+      & h1 {
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: ellipsis;  
+      }
+    }
+
+    .infoWrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 5px;
+  
+      color: color-variables.$text-tertiary-color;
+      text-wrap: no-wrap;
+
+      @include mixins.media-query(xl){
+        display: none;
+      }
+    }
+  }
+}
+

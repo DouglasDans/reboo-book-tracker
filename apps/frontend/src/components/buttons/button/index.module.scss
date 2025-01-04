@@ -10,6 +10,9 @@
   gap: global-sizes.$button-gap;
   padding: global-sizes.$button-padding;
 
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+
   
   &.primary{
     border: 0;
@@ -85,6 +88,10 @@
 
   & .children{
     display: flex;
+
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &.alignleft{
       width: 100%;

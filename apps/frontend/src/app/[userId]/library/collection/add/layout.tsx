@@ -38,6 +38,7 @@ export default function Layout({ children, params }: Props) {
       title='Adicionar Coleção'
       tabs={tabs}
       blankFormObject={blankFormObject}
+      requiredFields={['name']}
       submitFunction={createCollection}
     >
       {children}

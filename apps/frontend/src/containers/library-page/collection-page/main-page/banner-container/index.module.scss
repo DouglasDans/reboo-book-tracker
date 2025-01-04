@@ -1,5 +1,6 @@
 @use 'styles/global-sizes';
 @use 'styles/color-variables';
+@use 'styles/mixins';
 
 .container{
   
@@ -34,6 +35,13 @@
   justify-content: space-between;
   align-items: center;
 
+  & h1 {
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+
   .infoWrapper{
     display: flex;
     flex-direction: column;
@@ -41,5 +49,9 @@
     text-align: right;
 
     color: color-variables.$text-tertiary-color;
+
+    @include mixins.media-query(md){
+      display: none;
+    }
   }
 }

@@ -5,6 +5,14 @@
 .cardContainer{
   display: flex;
   flex-direction: row-reverse;
+  
+  .cardOpener{
+    width: 100%;
+  }
+  
+  &.fullWidth{
+    width: 100%;
+  }
 }
 
 .cardContainer .card{
@@ -18,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 1000000;
 
   @include mixins.media-query(lg){
     position: fixed;
