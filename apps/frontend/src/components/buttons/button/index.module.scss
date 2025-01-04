@@ -89,6 +89,10 @@
   & .children{
     display: flex;
 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.alignleft{
       width: 100%;
       align-items: flex-start;
