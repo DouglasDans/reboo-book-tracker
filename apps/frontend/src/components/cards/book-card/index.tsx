@@ -1,6 +1,4 @@
 import styles from './index.module.scss'
-import Icon from '@/components/icon'
-import Button from '../../buttons/button'
 import { Book } from '@/api/reboo-api/api.types'
 import Link from 'next/link'
 import BookCardPlaceholder from './placeholder'
