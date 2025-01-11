@@ -4,7 +4,7 @@ import StatusRadioButton from '@/components/forms/StatusRadioButton'
 import styles from './index.module.scss'
 import { Book } from '@/api/reboo-api/api.types'
 import Button from '@/components/buttons/button'
-import updateBookStatus from '@/actions/book/updateBookStatus'
+import { updateBookStatus } from '@/actions/book.action'
 
 type Props = {
   book: Book
@@ -42,7 +42,7 @@ export default async function BookStatusSwitcher({ book }: Props) {
           <StatusRadioButton type="GIVEN_UP" id="status5" name="bookStatus" defaultChecked={book?.status === "GIVEN_UP"}
           />
         </div>
-        <Button variant='secondary'>Atualizar status</Button>
+        <Button type='submit' variant='secondary'>Atualizar status</Button>
       </form>
     </div>
   )

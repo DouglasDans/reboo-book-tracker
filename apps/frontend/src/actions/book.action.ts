@@ -1,7 +1,7 @@
 "use server"
 
 import { bookApiService } from "@/api/reboo-api"
-import { BookDataRequest } from "@/api/reboo-api/api.types"
+import { BookDataRequest, BookStatus } from "@/api/reboo-api/api.types"
 import { FormBook } from "@/types/forms.types"
 import { redirect } from "next/navigation"
 
@@ -107,4 +107,14 @@ export default async function updateBook(bookData: FormBook) {
 export async function deleteBook(bookId: number) {
   const book = await bookApiService.deleteBook(bookId)
   return book
+}
+
+export async function updateBookHighlightColor(bookId: number, hexColor: string) {
+  await bookApiService.updateBookHighlightColor(bookId, hexColor)
+}
+
+export async function updateBookStatus(bookId: number, data: FormData) {
+  await bookApiService.updateBookStatus(bookId, data.get("bookStatus") as BookStatus)
+
+  redirect("./" + bookId)
 }

@@ -1,6 +1,4 @@
 import styles from './index.module.scss'
-import Icon from '@/components/icon'
-import Button from '../../buttons/button'
 import { Book } from '@/api/reboo-api/api.types'
 import Link from 'next/link'
 import BookCardPlaceholder from './placeholder'
@@ -31,9 +29,9 @@ export default function BookCard({ book }: Props) {
           <span>{percentPages.toFixed(0)}% Concluído</span>
           <span>{book.pagesRead} / {book.totalPages} Páginas Lidas</span>
         </div>
-        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+        {/* <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
           <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
-        </Link>
+        </Link> */}
       </div>
       <Link href={`/${book.userId}/library/book/${book.id}`}>
         <img className={styles.imageElement} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
