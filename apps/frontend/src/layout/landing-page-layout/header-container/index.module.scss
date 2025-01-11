@@ -7,6 +7,8 @@
 
   background-color: color-variables.$background-level1-color;
   border-bottom: 2px solid color-variables.$background-level2-color;
+  background-color: color-variables.$background-level1-color;
+  border-bottom: 2px solid color-variables.$background-level2-color;
 
   display: flex;
   align-items: center;
@@ -15,6 +17,7 @@
   padding: 0 50px 0 50px;
 
   position: fixed;
+  top: 0;
 
   .linksContainer{
     display: flex;
