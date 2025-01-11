@@ -6,9 +6,9 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "Reboo",
     description:
       "Organize sua biblioteca virtual, acompanhe seu progresso e estabeleça metas de leitura. Crie coleções, adicione livros por ISBN, defina sessões de leitura e visualize seus hábitos através de gráficos interativos.",
-    start_url: "https://rebootrack.me",
+    start_url: "https://rebootrack.me/login",
     scope: "https://rebootrack.me",
-    display: "minimal-ui",
+    display: "standalone",
     background_color: "#0F1115",
     theme_color: "#0F1115",
     lang: "pt-BR",
